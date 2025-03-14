@@ -1,0 +1,10 @@
+<!-- res/animator/flame_animation.xml -->
+<objectAnimator
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:propertyName="pathData"
+    android:duration="1500"
+    android:repeatCount="infinite"
+    android:repeatMode="reverse"
+    android:valueFrom="M 85,160 C 100,120 100,120 115,160"
+    android:valueTo="M 85,160 C 90,110 110,110 115,160"
+    android:valueType="pathType"/>
