@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import androidx.navigation.fragment.findNavController
 
 class SettingsFragment : Fragment() {
     override fun onCreateView(
@@ -13,6 +15,15 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_settings, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val favButton = view.findViewById<ImageButton>(R.id.settings_favorite_button)
+        favButton.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_favoriteQuotesFragment)
+        }
     }
 
     companion object {

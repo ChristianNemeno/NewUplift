@@ -14,9 +14,6 @@
         android:layout_height="match_parent"
         android:background="@color/black_bluish">
 
-
-
-
         <!-- Settings Title -->
         <TextView
             android:id="@+id/settingsTitle"
@@ -124,7 +121,8 @@
                 android:gravity="center_vertical"
                 android:background="@color/white">
 
-                <ImageView
+                <ImageButton
+                    android:id="@+id/settings_favorite_button"
                     android:layout_width="24dp"
                     android:layout_height="26dp"
                     android:background="@drawable/settings_content_icon" />
@@ -133,7 +131,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Content Preference"
+                    android:text="Favorites"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"

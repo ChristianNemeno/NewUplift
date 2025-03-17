@@ -9,7 +9,7 @@ data class Quote(
     val author: String,
     val timestamp: Long = System.currentTimeMillis(),
     val tags: List<String>,
-    val isFavorite : Boolean = false,
+    var isFavorite : Boolean = false,
     val isUserMade : Boolean = false
 )
 

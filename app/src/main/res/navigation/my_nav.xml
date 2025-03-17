@@ -14,10 +14,25 @@
         android:id="@+id/settingsFragment"
         android:name="com.android.newuplift.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+
+        <action
+            android:id="@+id/action_settingsFragment_to_favoriteQuotesFragment"
+            app:destination="@id/favoriteQuotesFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.android.newuplift.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+
+
+    <fragment
+        android:id="@+id/favoriteQuotesFragment"
+        android:name="com.android.newuplift.FavoriteQuotesFragment"
+        android:label="FavoriteQuotesFragment" />
 </navigation>

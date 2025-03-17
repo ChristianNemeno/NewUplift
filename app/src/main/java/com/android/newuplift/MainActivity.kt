@@ -26,10 +26,30 @@ class MainActivity : AppCompatActivity() {
 
         if (navController != null) {
             bottomNavigationView.setupWithNavController(navController)
+
+            // Handle navigation item selection to clear the stack
+            bottomNavigationView.setOnItemSelectedListener { item ->
+                when (item.itemId) {
+                    R.id.settingsFragment -> {
+                        navController.popBackStack(R.id.settingsFragment, true) // Clear stack up to settings
+                        navController.navigate(R.id.settingsFragment) // Navigate to settings
+                        true
+                    }
+                    R.id.homeFragment -> {
+                        navController.popBackStack(R.id.homeFragment, true)
+                        navController.navigate(R.id.homeFragment)
+                        true
+                    }
+                    R.id.profileFragment -> {
+                        navController.popBackStack(R.id.profileFragment, true)
+                        navController.navigate(R.id.profileFragment)
+                        true
+                    }
+                    else -> false
+                }
+            }
         }
 
-
-        
     }
 
 }

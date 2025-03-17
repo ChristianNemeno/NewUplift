@@ -85,4 +85,32 @@ class QuoteDao(private val db: SQLiteDatabase) {
     /**
      *      To add query for all favorites mga filtering functionalities i guess
      */
+    fun getFavoriteQuotes(): List<Quote> {
+        val quotes = mutableListOf<Quote>()
+        val cursor = db.query(
+            TABLE_NAME,
+            null, // All columns
+            "$COLUMN_IS_FAVORITE = ?",
+            arrayOf("1"), // Where is_favorite = 1
+            null,
+            null,
+            "$COLUMN_TIMESTAMP DESC" // Sort by timestamp descending
+        )
+
+        cursor.use {
+            while (it.moveToNext()) {
+                val quote = Quote(
+                    id = it.getString(it.getColumnIndexOrThrow(COLUMN_ID)),
+                    content = it.getString(it.getColumnIndexOrThrow(COLUMN_CONTENT)),
+                    author = it.getString(it.getColumnIndexOrThrow(COLUMN_AUTHOR)) ?: "",
+                    timestamp = it.getLong(it.getColumnIndexOrThrow(COLUMN_TIMESTAMP)),
+                    tags = it.getString(it.getColumnIndexOrThrow(COLUMN_TAGS))?.split(", ") ?: emptyList(),
+                    isFavorite = it.getInt(it.getColumnIndexOrThrow(COLUMN_IS_FAVORITE)) == 1,
+                    isUserMade = it.getInt(it.getColumnIndexOrThrow(COLUMN_IS_USER_MADE)) == 1
+                )
+                quotes.add(quote)
+            }
+        }
+        return quotes
+    }
 }
