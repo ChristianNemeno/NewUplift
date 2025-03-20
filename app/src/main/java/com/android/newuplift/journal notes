@@ -24,4 +24,9 @@ This fetch a JSON object using API and desrialized it using a data class made to
 I made the AuthManager this uses sharedPreferences para na koy track sa akong currentID
 the point of this was so i can query accordingly sa users with respect to its fav quotes
 
+In branch login, i had a lot of changes that includes the additon of foriegn key in quotes table
+changed my DAO accordinly and so
+
+basta halos tanan to blue so big overhaul
+
 
