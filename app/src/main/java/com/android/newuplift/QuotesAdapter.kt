@@ -28,7 +28,7 @@ class QuotesAdapter(
         val quote = quotes[position]
 
         // Set quote data
-        holder.tvQuoteContent.text = quote.content
+        holder.tvQuoteContent.text = quote.quote
         holder.tvAuthor.text = quote.author ?: "Unknown"
 
         // Prevent listener from triggering during binding

@@ -50,61 +50,70 @@ class HomeFragment : Fragment() {
         quoteDatabase = DatabaseHelper(requireContext())
         quoteDao = QuoteDao(quoteDatabase.writableDatabase)
 
-        // to use this just assign the current choice
-        // e.g spinner.selectedItem?.toString() ?: "None"
+        // Spinner setup for mood selection
         val adapter = ArrayAdapter(
             view.context,
             android.R.layout.simple_spinner_item,
             arrayOf("Happy", "Lost", "Motivated", "Bored")
         )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) // This was missing
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         homeSpinner.adapter = adapter
 
-
         buttonGenerateQuote.setOnClickListener {
-            // default would be Happy if walay gipili
-            choiceSpinner  = homeSpinner.selectedItem?.toString() ?: "Happy"
-            // this is an util function abstracted naas util.kt basically maps the mood sa tags
+            choiceSpinner = homeSpinner.selectedItem?.toString() ?: "Happy"
             tag = pickMood(choiceSpinner)
             fetchQuoteApi()
-
             heart_button.isSelected = false
             heart_button.setImageResource(R.drawable.home_ic_heart)
-
         }
 
         heart_button.setOnClickListener {
             it.isSelected = !it.isSelected
 
-            currentQuote?.let { quote->
-                val rowsUpdated = quoteDao.updateFavorite(quote.id, it.isSelected)
-                if(rowsUpdated > 0){
+            currentQuote?.let { quote ->
+                val quoteId = quote.id
+                val exists = quoteDao.isQuoteExists(quoteId)
 
-                    if (it.isSelected) {
-                        Toast.makeText(context, "Added to my favorites", Toast.LENGTH_SHORT).show()
+                if (exists) {
+
+                    val rowsUpdated = quoteDao.updateFavorite(quoteId, it.isSelected)
+                    if (rowsUpdated > 0) {
+                        if (it.isSelected) {
+                            Toast.makeText(context, "Added to favorites", Toast.LENGTH_SHORT).show()
+                            heart_button.setImageResource(R.drawable.home_ic_heart_filled)
+                        } else {
+                            Toast.makeText(context, "Removed from favorites", Toast.LENGTH_SHORT).show()
+                            heart_button.setImageResource(R.drawable.home_ic_heart)
+                        }
+                    } else {
+                        it.isSelected = !it.isSelected
+                        heart_button.setImageResource(
+                            if (it.isSelected) R.drawable.home_ic_heart_filled else R.drawable.home_ic_heart
+                        )
+                        Toast.makeText(context, "Failed to update favorite", Toast.LENGTH_SHORT).show()
+                    }
+                } else if (it.isSelected) {
+
+                    val updatedQuote = quote.copy(isFavorite = true)
+                    val newId = quoteDao.insertQuote(updatedQuote)
+                    if (newId != -1L) {
+                        Toast.makeText(context, "Added to favorites", Toast.LENGTH_SHORT).show()
                         heart_button.setImageResource(R.drawable.home_ic_heart_filled)
                     } else {
-                        Toast.makeText(context, "Wanas favorites :(", Toast.LENGTH_SHORT).show()
+                        it.isSelected = false
                         heart_button.setImageResource(R.drawable.home_ic_heart)
+                        Toast.makeText(context, "Failed to add favorite", Toast.LENGTH_SHORT).show()
                     }
+                } else {
 
-                }else{
-                    it.isSelected = !it.isSelected
-                    heart_button.setImageResource(
-                        if (it.isSelected) R.drawable.home_ic_heart_filled else R.drawable.home_ic_heart
-                    )
-                    Toast.makeText(context, "Failed to update favorite", Toast.LENGTH_SHORT).show()
-
+                    heart_button.setImageResource(R.drawable.home_ic_heart)
                 }
-            } ?: run{
+            } ?: run {
                 it.isSelected = false
                 heart_button.setImageResource(R.drawable.home_ic_heart)
-                Toast.makeText(context, "No quotes", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "No quote to favorite", Toast.LENGTH_LONG).show()
             }
-
         }
-
-
     }
 
     /**
@@ -112,15 +121,16 @@ class HomeFragment : Fragment() {
      *  e.g history if ever mag add ko :-)
      */
     private fun saveQuote() {
-        currentQuote?.let { quote ->
+        currentQuote?.let { param ->
             val savedQuote = Quote(
-                content = quote.content,
-                author = quote.author,
+                quote = param.quote,
+                author = param.author,
                 timestamp = System.currentTimeMillis(),
-                id = quote.id,
-                tags = quote.tags,
-                isFavorite = quote.isFavorite,
-                isUserMade = quote.isUserMade
+                id = param.id,
+                tags = param.tags,
+                isFavorite = param.isFavorite,
+                isUserMade = param.isUserMade,
+                length = param.length
             )
             val newId = quoteDao.insertQuote(savedQuote)
             if (newId != -1L) {
@@ -141,21 +151,14 @@ class HomeFragment : Fragment() {
     private fun fetchQuoteApi() {
         viewLifecycleOwner.lifecycleScope.launch {
             try {
-                val quotes = RetrofitClient.api.getRandomQuote(tag)
-                if (quotes.isNotEmpty()) {
-                    val quote = quotes[0]
-                    currentQuote = quote // Store the quote
-                    val content = quote.content
-                    val author = quote.author
-                    val tagsDisplay = quote.tags.joinToString(", ")
-                    val display = "\"$content\"\n- $author\n\n Tags: $tagsDisplay"
-                    quoteTextView.text = display
-                    saveQuote()
-                } else {
-                    currentQuote = null // Clear if no quote
-                    quoteTextView.text = "Please try again"
-                    Toast.makeText(context, "No quotes available for '$tag'", Toast.LENGTH_LONG).show()
-                }
+                val quote = RetrofitClient.api.getRandomQuote(tag) // Single Quote object
+                currentQuote = quote // Store the quote
+                val content = quote.quote // Use "quote" from QuoteSlate
+                val author = quote.author
+                val tagsDisplay = quote.tags.joinToString(", ")
+                val display = "\"$content\"\n- $author\n\nTags: $tagsDisplay"
+                quoteTextView.text = display
+                saveQuote()
             } catch (e: Exception) {
                 e.printStackTrace()
                 currentQuote = null // Clear on error
