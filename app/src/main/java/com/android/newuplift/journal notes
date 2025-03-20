@@ -1,0 +1,27 @@
+
+
+Database helper - this is a class extends to SQLiteHelper class , which helps me create the tables
+and the database
+
+QuoteDAO - db operations simplified
+
+DataClasses kt file - is where i keep data classes
+
+FavoriteQuotesFragment - this fragments displays the quotes it queries , i made a manager or DAO
+to do operations sa db , it use recycle view to display it
+
+HomeFragment  - Where i generate quotes simple UI
+
+
+Classes used to Communicate to API QuoteSlate
+
+QuotableAPI
+RetrofitClient
+
+This fetch a JSON object using API and desrialized it using a data class made to match the JSON
+
+
+I made the AuthManager this uses sharedPreferences para na koy track sa akong currentID
+the point of this was so i can query accordingly sa users with respect to its fav quotes
+
+

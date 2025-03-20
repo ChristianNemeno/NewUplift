@@ -1,4 +1,4 @@
-package com.android.newuplift
+package com.android.newuplift.utility
 
 
 data class Quote(
@@ -17,6 +17,6 @@ data class UserAccount(
     val username : String,
     val password : String,
     val email : String,
-    val adress : String,
+    val address : String,
     val number : String
 )

@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.android.newuplift.HomeFragment"
+        android:name="com.android.newuplift.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.android.newuplift.SettingsFragment"
+        android:name="com.android.newuplift.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
 
@@ -26,13 +26,13 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.android.newuplift.ProfileFragment"
+        android:name="com.android.newuplift.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 
 
     <fragment
         android:id="@+id/favoriteQuotesFragment"
-        android:name="com.android.newuplift.FavoriteQuotesFragment"
+        android:name="com.android.newuplift.fragments.FavoriteQuotesFragment"
         android:label="FavoriteQuotesFragment" />
 </navigation>

@@ -1,0 +1,6 @@
+Make it work such that each user have its own set of favorite quotes
+
+first off fix the currentID
+what you need to do is
+
+himo kag object singleton instance this holds the currentID , put persistennce on it use shared preferences

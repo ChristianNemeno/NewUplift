@@ -1,10 +1,11 @@
-package com.android.newuplift
+package com.android.newuplift.utility
 
 import android.graphics.drawable.Animatable
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.Spinner
+import android.widget.Toast
+import com.android.newuplift.R
 
 fun pickMood(choiceSpinner: String): String {
     return when (choiceSpinner) {
@@ -17,11 +18,12 @@ fun pickMood(choiceSpinner: String): String {
 }
 
 
+
 fun EditText.isBlank() : Boolean{
     return this.text.toString().isBlank()
 }
 
-fun EditText.s() : String{
+fun EditText.stringed() : String{
     return this.text.toString()
 }
 

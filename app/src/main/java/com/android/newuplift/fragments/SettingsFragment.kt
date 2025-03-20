@@ -1,4 +1,4 @@
-package com.android.newuplift
+package com.android.newuplift.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.navigation.fragment.findNavController
+import com.android.newuplift.R
 
 class SettingsFragment : Fragment() {
     override fun onCreateView(

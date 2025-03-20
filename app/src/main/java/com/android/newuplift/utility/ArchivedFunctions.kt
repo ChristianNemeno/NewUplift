@@ -1,4 +1,4 @@
-package com.android.newuplift
+package com.android.newuplift.utility
 
 import android.widget.Toast
 import androidx.lifecycle.findViewTreeViewModelStoreOwner

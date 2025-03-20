@@ -1,4 +1,4 @@
-package com.android.newuplift
+package com.android.newuplift.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.newuplift.utility.QuotesAdapter
+import com.android.newuplift.R
+import com.android.newuplift.database.DatabaseHelper
+import com.android.newuplift.database.QuoteDao
+import com.android.newuplift.utility.AuthManager
 import kotlinx.coroutines.launch
 
 class FavoriteQuotesFragment : Fragment() {
@@ -28,33 +33,32 @@ class FavoriteQuotesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Initialize RecyclerView
         recyclerView = view.findViewById(R.id.recyclerViewQuotes)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Initialize Database and DAO
+
         quoteDatabase = DatabaseHelper(requireContext())
         quoteDao = QuoteDao(quoteDatabase.writableDatabase)
 
-        // Initialize Adapter with empty list
+
         quotesAdapter = QuotesAdapter(emptyList()) { quote, isFavorite ->
-            // Handle favorite state change
+
             viewLifecycleOwner.lifecycleScope.launch {
-                val rowsUpdated = quoteDao.updateFavorite(quote.id, isFavorite)
+                val rowsUpdated = quoteDao.updateFavorite(AuthManager.currentUserId,quote.id, isFavorite)// change this!
                 if (rowsUpdated > 0) {
-                    loadFavoriteQuotes() // Refresh list after update
+                    loadFavoriteQuotes()
                 }
             }
         }
         recyclerView.adapter = quotesAdapter
 
-        // Load favorite quotes
+
         loadFavoriteQuotes()
     }
 
     private fun loadFavoriteQuotes() {
         viewLifecycleOwner.lifecycleScope.launch {
-            val favoriteQuotes = quoteDao.getFavoriteQuotes() // Fetch from DAO
+            val favoriteQuotes = quoteDao.getFavoriteQuotes(AuthManager.currentUserId) // Fetch from DAO
             quotesAdapter.updateQuotes(favoriteQuotes)
         }
     }

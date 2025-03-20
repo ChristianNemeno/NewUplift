@@ -1,10 +1,17 @@
-package com.android.newuplift
+package com.android.newuplift.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.android.newuplift.R
+import com.android.newuplift.utility.UserAccount
+import com.android.newuplift.database.DatabaseHelper
+import com.android.newuplift.database.QuoteDao
+import com.android.newuplift.utility.isBlank
+import com.android.newuplift.utility.stringed
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var quoteDatabase : DatabaseHelper
@@ -26,35 +33,40 @@ class RegisterActivity : AppCompatActivity() {
         val btnRegister = findViewById<Button>(R.id.btnRegister)
 
         btnRegister.setOnClickListener {
-            if( name.text.toString().isBlank()
-                || username.text.toString().isBlank()
-                || pass.text.toString().isBlank()
-                || email.text.toString().isBlank()
-                ||adress.text.toString().isBlank()
-                ||number.text.toString().isBlank()) {
+            if( name.isBlank()
+                || username.isBlank()
+                || pass.isBlank()
+                || email.isBlank()
+                || adress.isBlank()
+                || number.isBlank()) {
 
                 Toast.makeText(this, "Please fill up all the fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
-            }else if(quoteDao.isUsernameExists(name.text.toString())){
+            }else if(quoteDao.isUsernameExists(name.stringed())){
                 Toast.makeText(this, "Username taken", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // if successful
 
-            // s here is a extension function in util basically just gets the text and toString()
-            val user_acc  = UserAccount(name.s(), username.s(), pass.s(), email.s(),adress.s(),number.s())
+            val user_acc  = UserAccount(name.stringed(),
+                                        username.stringed(),
+                                        pass.stringed(),
+                                        email.stringed(),
+                                        adress.stringed(),
+                                        number.stringed())
 
-            quoteDao.insertAccount(user_acc)
+            val res = quoteDao.insertAccount(user_acc)
+
+            if(res > 0){
+                Toast.makeText(this, "Registration successful! : $res", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this, "Registration FAILED! : $res", Toast.LENGTH_SHORT).show()
+            }
 
 
-            Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
-
+            startActivity(Intent(this, LoginActivity::class.java))
 
         }
-
-        // continue error guarding and authentication instantiate db and make in DAO search using WHERE CLASUE OK?
-
 
     }
 }

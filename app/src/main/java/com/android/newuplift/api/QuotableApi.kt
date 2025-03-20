@@ -1,5 +1,6 @@
-package com.android.newuplift
+package com.android.newuplift.api
 
+import com.android.newuplift.utility.Quote
 import retrofit2.http.GET
 import retrofit2.http.Query
 
