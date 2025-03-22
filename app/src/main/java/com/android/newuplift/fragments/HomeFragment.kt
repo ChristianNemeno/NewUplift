@@ -57,11 +57,10 @@ class HomeFragment : Fragment() {
         quoteDatabase = DatabaseHelper(requireContext())
         quoteDao = QuoteDao(quoteDatabase.writableDatabase)
 
-        // Set currentUserId here based on your authentication system
-        // For example: currentUserId = getCurrentUserIdFromAuth()
+
         currentUserId = AuthManager.currentUserId
 
-        // Spinner setup
+
         val adapter = ArrayAdapter(
             view.context,
             android.R.layout.simple_spinner_item,
@@ -89,7 +88,7 @@ class HomeFragment : Fragment() {
                 val exists = quoteDao.isQuoteExists(quoteId, currentUserId)
 
                 if (exists) {
-                    // Toggle favorite status for existing quote
+
                     val newFavoriteStatus = !heartButton.isSelected
                     val rowsUpdated = quoteDao.updateFavorite(quoteId, currentUserId, newFavoriteStatus)
 
@@ -108,7 +107,7 @@ class HomeFragment : Fragment() {
                         Toast.makeText(context, "Failed to update favorite", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    // Insert new quote only if marking as favorite
+
                     if (!heartButton.isSelected) {
                         val updatedQuote = quote.copy(isFavorite = true)
                         val newId = quoteDao.insertQuote(updatedQuote, currentUserId)

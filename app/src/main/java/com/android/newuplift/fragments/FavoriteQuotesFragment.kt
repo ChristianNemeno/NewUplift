@@ -1,9 +1,11 @@
 package com.android.newuplift.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +15,7 @@ import com.android.newuplift.R
 import com.android.newuplift.database.DatabaseHelper
 import com.android.newuplift.database.QuoteDao
 import com.android.newuplift.utility.AuthManager
+import com.android.newuplift.utility.showToast
 import kotlinx.coroutines.launch
 
 class FavoriteQuotesFragment : Fragment() {
@@ -42,11 +45,15 @@ class FavoriteQuotesFragment : Fragment() {
 
 
         quotesAdapter = QuotesAdapter(emptyList()) { quote, isFavorite ->
-
+            Log.d("FavoriteQuotes", "Toggling: quoteId=${quote.id}, userId=${AuthManager.currentUserId}, isFavorite=$isFavorite")
             viewLifecycleOwner.lifecycleScope.launch {
-                val rowsUpdated = quoteDao.updateFavorite(AuthManager.currentUserId,quote.id, isFavorite)// change this!
+                val rowsUpdated = quoteDao.updateFavorite(quote.id, AuthManager.currentUserId, isFavorite)// change this!
+                Log.d("FavoriteQuotes", "Update result: rowsUpdated=$rowsUpdated, quoteId=${quote.id}, userId=${AuthManager.currentUserId}")
                 if (rowsUpdated > 0) {
+                    showToast("This is the current ID : ${AuthManager.currentUserId}")
                     loadFavoriteQuotes()
+                }else{
+                    Log.d("FavoriteQuotes", "Update failed - no rows matched")
                 }
             }
         }

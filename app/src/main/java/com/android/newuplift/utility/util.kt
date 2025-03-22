@@ -1,10 +1,13 @@
 package com.android.newuplift.utility
 
+import android.app.Activity
+import android.content.Context
 import android.graphics.drawable.Animatable
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.android.newuplift.R
 
 fun pickMood(choiceSpinner: String): String {
@@ -15,6 +18,12 @@ fun pickMood(choiceSpinner: String): String {
         "Bored" -> "general"
         else -> "happiness"
     }
+}
+fun Fragment.showToast(message: String) {
+    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+}
+fun Activity.showToast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
 
 

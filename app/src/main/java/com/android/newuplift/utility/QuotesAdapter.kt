@@ -1,5 +1,6 @@
 package com.android.newuplift.utility
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,11 +36,16 @@ class QuotesAdapter(
         holder.cbFavorite.isChecked = quote.isFavorite
 
         holder.cbFavorite.setOnCheckedChangeListener { _, isChecked ->
+            Log.d("QuotesAdapter", "Step 2: Checkbox toggled for quoteId=${quote.id}, isChecked=$isChecked")
             if (quote.isFavorite != isChecked) {
                 quote.isFavorite = isChecked
                 onFavoriteChanged(quote, isChecked)
             }
         }
+        holder.cbFavorite.setOnClickListener {
+            Log.d("QuotesAdapter", "Step 3: Checkbox clicked for quoteId=${quote.id}")
+        }
+        Log.d("QuotesAdapter", "Step 4: Binding quoteId=${quote.id}, isFavorite=${quote.isFavorite}")
     }
 
     override fun getItemCount() = quotes.size

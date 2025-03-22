@@ -2,6 +2,7 @@ package com.android.newuplift.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -11,6 +12,7 @@ import com.android.newuplift.R
 import com.android.newuplift.database.DatabaseHelper
 import com.android.newuplift.database.QuoteDao
 import com.android.newuplift.utility.AuthManager
+import com.android.newuplift.utility.showToast
 
 import com.android.newuplift.utility.stringed
 
@@ -51,7 +53,8 @@ class LoginActivity : AppCompatActivity() {
             val userId = quoteDao.authenticateUser(username,password)
             if(userId != null){
                 AuthManager.login(userId, this)
-                Toast.makeText(this,"Logging in...", Toast.LENGTH_SHORT).show()
+                Log.d("Login","Logging in SSSSS")
+                Toast.makeText(this,"Logging in... $userId", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }else{

@@ -3,6 +3,7 @@ package com.android.newuplift.database
 import android.content.ContentValues
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.util.Log
 import com.android.newuplift.utility.Quote
 import com.android.newuplift.utility.UserAccount
 
@@ -70,6 +71,8 @@ class QuoteDao(private val db: SQLiteDatabase) {
         val values = ContentValues().apply {
             put(COLUMN_IS_FAVORITE, if (isFavorite) 1 else 0)
         }
+        Log.d("QuoteDao", "Updating: table=$TABLE_NAME, id=$id, userId=$userId, isFavorite=$isFavorite")
+        Log.d("QuoteDao", "Where clause: $COLUMN_ID = ? AND $COLUMN_USER_ID = ?, args=${id.toString()}, ${userId.toString()}")
         return db.update(
             TABLE_NAME,
             values,
