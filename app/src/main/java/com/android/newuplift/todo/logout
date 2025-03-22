@@ -1,0 +1,20 @@
+Now that im done with login ,
+
+implemented different users and an singleton that tracks the current id using shared preferences
+makes it sure that the current user id will only see his/her favorites , etc.
+
+i need a logout activity , function such that it will clear the authManager singleton
+and when i log in back i it will now then have another user
+
+
+in settings button there is logout button
+
+-> custom dialog if sure baka mu log out
+
+-> if yes , redirect to logout activity
+
+-> it says there login button or register
+
+then intent rana the end
+
+finished this one
