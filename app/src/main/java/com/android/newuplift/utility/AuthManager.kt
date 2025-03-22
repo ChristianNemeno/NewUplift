@@ -21,7 +21,7 @@ object AuthManager {
 
     }
 
-    // Clear user ID and login status on logout
+
     fun logout(context : Context) {
         _currentUserId = -1
         _isLoggedIn = false

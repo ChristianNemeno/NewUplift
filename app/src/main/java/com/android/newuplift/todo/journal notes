@@ -27,6 +27,29 @@ the point of this was so i can query accordingly sa users with respect to its fa
 In branch login, i had a lot of changes that includes the additon of foriegn key in quotes table
 changed my DAO accordinly and so
 
-basta halos tanan to blue so big overhaul
+basta halos tanan to blue so big overhaul.
+
+--ends
+
+
+22/03/2025
+
+Now ill be making the log out ,
+
+I have finished implementing the logout , i used a custom dialog murag alert sa java,
+it pops up when i press log out and if i press yes it redirects me to the log out activity
+and i also called the function logout to the AuthManager a singleton that keeps track to my currentID and
+login status
+
+it works so far , each user has its own favorites
+
+The next i want to implement would be polishing some features , that would be the profile fragment
+
+I also encountered not compatible , which is my current theme is Material and the
+backgrounds i did is appcompat so , work around is use material components or
+change the theme
+
+
+--ends
 
 

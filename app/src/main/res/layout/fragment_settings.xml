@@ -12,23 +12,25 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black_bluish">
+        android:background="@color/black_bluish"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-52dp">
 
-        <!-- Settings Title -->
+
+
         <TextView
             android:id="@+id/settingsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
             android:text="Settings"
+            android:textColor="@color/white"
             android:textSize="35sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_marginTop="56dp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Settings Menu Items Container -->
         <LinearLayout
             android:id="@+id/settingsContainer"
             android:layout_width="match_parent"
@@ -37,17 +39,19 @@
             android:layout_marginTop="32dp"
             android:orientation="vertical"
 
-            app:layout_constraintTop_toBottomOf="@id/settingsTitle">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <!-- Account -->
             <LinearLayout
                 android:id="@+id/accountSection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="horizontal"
+                android:background="@drawable/settings_upper_rounded_button"
                 android:gravity="center_vertical"
-                android:background="@drawable/settings_upper_rounded_button">
+                android:orientation="horizontal"
+                android:padding="16dp">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -57,12 +61,12 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:text="Account"
+                    android:text="About the developers"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="16dp" />
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -75,15 +79,15 @@
                 android:layout_height="1dp"
                 android:background="#EEEEEE" />
 
-            <!-- Appearance -->
+
             <LinearLayout
                 android:id="@+id/appearanceSection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="horizontal"
                 android:background="@color/white"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -93,12 +97,12 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:text="Appearance"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:layout_marginStart="16dp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -111,15 +115,14 @@
                 android:layout_height="1dp"
                 android:background="#EEEEEE" />
 
-            <!-- Content Preference -->
             <LinearLayout
                 android:id="@+id/contentPreferenceSection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="horizontal"
+                android:background="@color/white"
                 android:gravity="center_vertical"
-                android:background="@color/white">
+                android:orientation="horizontal"
+                android:padding="16dp">
 
                 <ImageButton
                     android:id="@+id/settings_favorite_button"
@@ -130,12 +133,12 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:text="Favorites"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:layout_marginStart="16dp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -153,10 +156,10 @@
                 android:id="@+id/notificationSection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="horizontal"
+                android:background="@color/white"
                 android:gravity="center_vertical"
-                android:background="@color/white">
+                android:orientation="horizontal"
+                android:padding="16dp">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -166,12 +169,12 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:text="Notification"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:layout_marginStart="16dp" />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -189,10 +192,10 @@
                 android:id="@+id/supportSection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="horizontal"
+                android:background="@color/white"
                 android:gravity="center_vertical"
-                android:background="@color/white">
+                android:orientation="horizontal"
+                android:padding="16dp">
 
                 <ImageView
                     android:layout_width="25dp"
@@ -202,12 +205,12 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:text="Support and Privacy"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="16dp" />
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -225,25 +228,30 @@
                 android:id="@+id/aboutSection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:orientation="horizontal"
                 android:background="@drawable/settings_bottom_rounded_button"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp"
+
+                >
 
                 <ImageView
+                    android:id="@+id/logout_button"
                     android:layout_width="25dp"
                     android:layout_height="27dp"
-                    android:background="@drawable/settings_info_icon" />
+                    android:background="@drawable/settings_info_icon"
+                    android:clickable="true"
+                    android:focusable="true" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:text="About the Developers"
+                    android:text="Logout"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="16dp" />
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -252,22 +260,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Logout Button -->
-        <Button
-            android:id="@+id/logout_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-
-            android:padding="16dp"
-            android:text="Logout"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/settingsContainer"
-            app:layout_constraintWidth_percent="0.8" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

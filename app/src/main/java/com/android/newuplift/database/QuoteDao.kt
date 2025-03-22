@@ -130,7 +130,7 @@ class QuoteDao(private val db: SQLiteDatabase) {
         return quotes
     }
 
-    // User Account Operations
+
     fun insertAccount(account: UserAccount): Long {
         val values = ContentValues().apply {
             put(COLUMN_NAME, account.name)
