@@ -23,11 +23,13 @@ class LogoutActivity : AppCompatActivity() {
 
         lgBtn.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
+            finish()
 
         }
 
         rgBtn.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
+            finish()
         }
 
     }

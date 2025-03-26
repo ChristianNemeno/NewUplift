@@ -1,0 +1,8 @@
+
+
+Implement something like kanang mu stay siya logged in even tho ma close ang app
+
+i think it utilizes sared preferences and i initialize ang AuthManager
+sa login activity and if true siya simply skip stat and intent
+cguro put guards nalng for each activites and frag ments if naka logged in ba
+and redirect them sa login activity
