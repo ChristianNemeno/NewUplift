@@ -49,6 +49,7 @@ class QuotesAdapter(
     }
 
     override fun getItemCount() = quotes.size
+    //hgcffty
 
     fun updateQuotes(newQuotes: List<Quote>) {
         quotes = newQuotes
