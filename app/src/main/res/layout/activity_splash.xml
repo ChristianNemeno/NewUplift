@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0F7FA"> <!-- Light cyan background -->
+
+    <ImageView
+        android:id="@+id/splash_icon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/uplift_logo"
+        android:contentDescription="Splash screen icon" />
+
+</RelativeLayout>
