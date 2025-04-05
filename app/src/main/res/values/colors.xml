@@ -13,6 +13,10 @@
     <color name="light_gray">#E6E6E6</color>
     <color name="medium_light_gray">#B0B0B0</color>
 
+    <!--dark purple -->
+    <color name="dark_purple">#4C4993</color>
+    <color name="teal_darker">#BFC9EB</color>
+
     <!--main color scheme-->
 
     <color name="deep_blue">#3D52A0</color>
