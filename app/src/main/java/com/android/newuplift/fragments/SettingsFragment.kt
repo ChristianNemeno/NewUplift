@@ -18,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import com.android.newuplift.R
 import com.android.newuplift.activities.LoginActivity
 import com.android.newuplift.activities.LogoutActivity
+import com.android.newuplift.dialogfragment.BottomSheetDialog
 import com.android.newuplift.utility.AuthManager
 
 class SettingsFragment : Fragment() {
@@ -42,7 +43,8 @@ class SettingsFragment : Fragment() {
 
 
             // i want to use the custom dialog here how?
-            showLogoutDialog()
+//            showLogoutDialog()
+            showLogoutBottomSheet()
 
         }
 
@@ -51,37 +53,49 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    private fun showLogoutDialog() {
-        context?.let { ctx ->
-            val dialog = Dialog(ctx)
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setContentView(R.layout.custom_logout_dialog)
+//    private fun showLogoutDialog() {
+//        context?.let { ctx ->
+//            val dialog = Dialog(ctx)
+//            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+//            dialog.setContentView(R.layout.custom_logout_dialog)
+//
+//            dialog.window?.apply {
+//                setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//                val width = (ctx.resources.displayMetrics.widthPixels * 0.9).toInt()
+//                setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
+//            }
+//
+//            val btnCancel = dialog.findViewById<Button>(R.id.btnCancel)
+//            val btnLogout = dialog.findViewById<Button>(R.id.btnLogout)
+//
+//            btnCancel.background = ContextCompat.getDrawable(ctx, R.drawable.button_cancel_background)
+//            btnLogout.background = ContextCompat.getDrawable(ctx, R.drawable.button_logout_background)
+//
+//            btnCancel.setOnClickListener {
+//                dialog.dismiss()
+//            }
+//
+//            btnLogout.setOnClickListener {
+//                AuthManager.logout(requireContext())
+//                println("Current user id $AuthManager.currentUserId")
+//                dialog.dismiss()
+//                startActivity(Intent(context, LogoutActivity::class.java))
+//            }
+//
+//            dialog.show()
+//        }
+//    }
 
-            dialog.window?.apply {
-                setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                val width = (ctx.resources.displayMetrics.widthPixels * 0.9).toInt()
-                setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
-            }
-
-            val btnCancel = dialog.findViewById<Button>(R.id.btnCancel)
-            val btnLogout = dialog.findViewById<Button>(R.id.btnLogout)
-
-            btnCancel.background = ContextCompat.getDrawable(ctx, R.drawable.button_cancel_background)
-            btnLogout.background = ContextCompat.getDrawable(ctx, R.drawable.button_logout_background)
-
-            btnCancel.setOnClickListener {
-                dialog.dismiss()
-            }
-
-            btnLogout.setOnClickListener {
+    private fun showLogoutBottomSheet(){
+        val bottomSheetDialog = com.android.newuplift.dialogfragment.BottomSheetDialog()
+        bottomSheetDialog.setLogoutListener(object : BottomSheetDialog.LogoutListener {
+            override fun onLogoutConfirmed() {
                 AuthManager.logout(requireContext())
-                println("Current user id $AuthManager.currentUserId")
-                dialog.dismiss()
                 startActivity(Intent(context, LogoutActivity::class.java))
             }
+        })
 
-            dialog.show()
-        }
+        bottomSheetDialog.show(parentFragmentManager, "LogoutBottomSheet")
     }
 
     companion object {

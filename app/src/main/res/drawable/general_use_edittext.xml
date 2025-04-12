@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Fill with 88% opacity white -->
+    <solid android:color="#E0FFFFFF" /> <!-- #E0 = 88% opacity of white -->
+
+    <!-- 10dp corner radius on all corners -->
+    <corners android:radius="10dp" />
+
+    <!-- 2dp inner stroke with 88% opacity black -->
+    <stroke
+        android:width="2dp"
+        android:color="#E0000000" /> <!-- #E0 = 88% opacity of black -->
+
+    <!-- Padding to ensure stroke appears inside -->
+    <padding
+        android:left="2dp"
+        android:top="2dp"
+        android:right="2dp"
+        android:bottom="2dp" />
+
+</shape>
