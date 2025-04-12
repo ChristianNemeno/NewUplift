@@ -64,7 +64,7 @@ class SettingsFragment : Fragment() {
         }
 
         developerButton.setOnClickListener {
-
+            findNavController().navigate(R.id.action_settingsFragment_to_developerFragment)
         }
 
         logoutButton.setOnClickListener {

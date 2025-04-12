@@ -264,13 +264,13 @@
 
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRegister"
         android:layout_width="318.61dp"
         android:layout_height="56.47dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/login_btn_gradient"
+        android:background="@drawable/button_register_background"
         android:text="Register"
         android:textSize="18dp"
         android:textColor="@color/white"

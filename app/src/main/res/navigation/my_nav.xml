@@ -10,6 +10,7 @@
         android:name="com.android.newuplift.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.android.newuplift.fragments.SettingsFragment"
@@ -30,6 +31,13 @@
             app:popUpToInclusive="false"
             />
 
+        <action
+            android:id="@+id/action_settingsFragment_to_developerFragment"
+            app:destination="@+id/developerFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="false"
+            />
+
 
     </fragment>
 
@@ -45,4 +53,22 @@
         android:id="@+id/favoriteQuotesFragment"
         android:name="com.android.newuplift.fragments.FavoriteQuotesFragment"
         android:label="FavoriteQuotesFragment" />
+
+    <fragment
+        android:id="@+id/developerFragment"
+        android:name="com.android.newuplift.fragments.DeveloperFragment"
+        android:label="fragment_developer"
+        tools:layout="@layout/fragment_developers_page">
+
+        <action
+            android:id="@+id/action_developerFragment_to_settingsFragment"
+            app:destination="@+id/settingsFragment"
+            app:popUpTo="@id/developerFragment"
+            app:popUpToInclusive="false"
+            />
+
+    </fragment>
+
+
+
 </navigation>
