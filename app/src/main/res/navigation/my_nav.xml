@@ -16,11 +16,21 @@
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
 
+        <!--This is where to create action to different fragments-->
         <action
             android:id="@+id/action_settingsFragment_to_favoriteQuotesFragment"
             app:destination="@id/favoriteQuotesFragment"
             app:popUpTo="@id/settingsFragment"
             app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_settingsFragment_to_profileFragment"
+            app:destination="@+id/profileFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="false"
+            />
+
+
     </fragment>
 
 
