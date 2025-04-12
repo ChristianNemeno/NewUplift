@@ -36,11 +36,12 @@
 
     <ImageView
         android:id="@+id/imageView2_container"
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_width="409dp"
+        android:layout_height="579dp"
         android:background="@drawable/login_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/login_et_user"
