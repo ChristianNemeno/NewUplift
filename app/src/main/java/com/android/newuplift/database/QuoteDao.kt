@@ -18,6 +18,9 @@ import com.android.newuplift.utility.UserAccount
  * for future exceptions
  */
 
+
+
+
 class QuoteDao(private val db: SQLiteDatabase) {
 
     companion object {
@@ -44,6 +47,12 @@ class QuoteDao(private val db: SQLiteDatabase) {
     }
 
     // Quote Operations - Now user-specific
+
+    /**
+     * the insertQuote accepts params quote : Quote , and userId: Int
+     * the Quote generated has an existing key , and the userId is from the singleton authenticate
+     * which tracks the id of the current user ( a funciton made to return the id in log in is made )
+     */
     fun insertQuote(quote: Quote, userId: Int): Long {
         if (isQuoteExists(quote.id, userId)) {
             return -1L
@@ -160,6 +169,10 @@ class QuoteDao(private val db: SQLiteDatabase) {
     }
 
     // Added basic authentication method
+    /**
+     * This is the function that returns the current row's id it helps
+     * to track the current user
+     */
     fun authenticateUser(username: String, password: String): Int? {
         val cursor: Cursor = db.query(
             TABLE_NAME_USER,
@@ -177,4 +190,40 @@ class QuoteDao(private val db: SQLiteDatabase) {
             return null
         }
     }
+
+
+
+    //------------------------------------------------------------------------------------------------
+    // user made
+    fun getUserMadeQuotes(userId: Int): List<Quote> {
+        val quotes = mutableListOf<Quote>()
+        val cursor = db.query(
+            TABLE_NAME,
+            null,
+            "$COLUMN_IS_USER_MADE = ? AND $COLUMN_USER_ID = ?",
+            arrayOf("1", userId.toString()),
+            null,
+            null,
+            "$COLUMN_TIMESTAMP DESC"
+        )
+        cursor.use {
+            while (it.moveToNext()) {
+                val quote = Quote(
+                    id = it.getInt(it.getColumnIndexOrThrow(COLUMN_ID)),
+                    quote = it.getString(it.getColumnIndexOrThrow(COLUMN_QUOTE)),
+                    author = it.getString(it.getColumnIndexOrThrow(COLUMN_AUTHOR)) ?: "",
+                    timestamp = it.getLong(it.getColumnIndexOrThrow(COLUMN_TIMESTAMP)),
+                    tags = it.getString(it.getColumnIndexOrThrow(COLUMN_TAGS))?.split(", ") ?: emptyList(),
+                    isFavorite = it.getInt(it.getColumnIndexOrThrow(COLUMN_IS_FAVORITE)) == 1,
+                    isUserMade = it.getInt(it.getColumnIndexOrThrow(COLUMN_IS_USER_MADE)) == 1,
+                    length = it.getInt(it.getColumnIndexOrThrow(COLUMN_LENGTH))
+                )
+                quotes.add(quote)
+            }
+        }
+        return quotes
+    }
+
+
+    // ------------------------------------------------------------------------------
 }

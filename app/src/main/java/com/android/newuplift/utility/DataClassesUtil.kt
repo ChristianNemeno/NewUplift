@@ -20,3 +20,8 @@ data class UserAccount(
     val address : String,
     val number : String
 )
+
+enum class QuoteType {
+    FAVORITE,
+    USER_MADE
+}

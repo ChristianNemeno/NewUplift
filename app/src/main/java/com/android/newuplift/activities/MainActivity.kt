@@ -42,8 +42,8 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.myQuoteFragment ->{
-                        navController.popBackStack(R.id.profileFragment, true)
-                        navController.navigate(R.id.profileFragment)
+                        navController.popBackStack(R.id.myQuotes, true)
+                        navController.navigate(R.id.myQuotes)
                         true
                     }
                     else -> false

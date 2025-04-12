@@ -10,12 +10,12 @@
         android:name="com.android.newuplift.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.android.newuplift.fragments.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" >
-
+        tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_settingsFragment_to_favoriteQuotesFragment"
             app:destination="@id/favoriteQuotesFragment"
@@ -23,16 +23,33 @@
             app:popUpToInclusive="false" />
     </fragment>
 
-
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.android.newuplift.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 
-
     <fragment
         android:id="@+id/favoriteQuotesFragment"
         android:name="com.android.newuplift.fragments.FavoriteQuotesFragment"
         android:label="FavoriteQuotesFragment" />
+
+    <fragment
+        android:id="@+id/makeQuotesFragment"
+        android:name="com.android.newuplift.fragments.MakeQuotesFragment"
+        android:label="fragment_make_quotes"
+        tools:layout="@layout/fragment_make_quotes" />
+
+    <fragment
+        android:id="@+id/myQuotes"
+        android:name="com.android.newuplift.fragments.MyQuotesFragment"
+        android:label="fragments_my_quotes"
+        tools:layout="@layout/fragment_my_quotes">
+        <action
+            android:id="@+id/action_myQuotes_to_makeQuotesFragment"
+            app:destination="@id/makeQuotesFragment"
+            app:popUpTo="@id/myQuotes"
+            app:popUpToInclusive="false" />
+    </fragment>
+
 </navigation>
