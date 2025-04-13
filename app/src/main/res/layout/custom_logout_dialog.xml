@@ -41,26 +41,25 @@
         android:fontFamily="@font/robotoserif_medium"/>
 
     <!-- Logout Button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogout"
         android:layout_width="314dp"
         android:layout_height="48dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/button_logout_background"
-        android:backgroundTint="#4C4993"
         android:text="Yes, log me out"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold"/>
 
     <!-- Cancel Button -->
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCancel"
         android:layout_width="314dp"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/button_logout_background"
+        android:background="@drawable/button_cancel_background"
         android:text="No, Go back"
         android:textAllCaps="false"
         android:textStyle="bold"/>

@@ -15,12 +15,30 @@
         android:id="@+id/settingsFragment"
         android:name="com.android.newuplift.fragments.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings">
+        tools:layout="@layout/fragment_settings" >
+
+        <!--This is where to create action to different fragments-->
         <action
             android:id="@+id/action_settingsFragment_to_favoriteQuotesFragment"
             app:destination="@id/favoriteQuotesFragment"
             app:popUpTo="@id/settingsFragment"
             app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_settingsFragment_to_profileFragment"
+            app:destination="@+id/profileFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="false"
+            />
+
+        <action
+            android:id="@+id/action_settingsFragment_to_developerFragment"
+            app:destination="@+id/developerFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="false"
+            />
+
+
     </fragment>
 
     <fragment
@@ -33,6 +51,7 @@
         android:id="@+id/favoriteQuotesFragment"
         android:name="com.android.newuplift.fragments.FavoriteQuotesFragment"
         android:label="FavoriteQuotesFragment" />
+
 
     <fragment
         android:id="@+id/makeQuotesFragment"
@@ -50,6 +69,22 @@
             app:destination="@id/makeQuotesFragment"
             app:popUpTo="@id/myQuotes"
             app:popUpToInclusive="false" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/developerFragment"
+        android:name="com.android.newuplift.fragments.DeveloperFragment"
+        android:label="fragment_developer"
+        tools:layout="@layout/fragment_developers_page">
+
+        <action
+            android:id="@+id/action_developerFragment_to_settingsFragment"
+            app:destination="@+id/settingsFragment"
+            app:popUpTo="@id/developerFragment"
+            app:popUpToInclusive="false"
+            />
+
     </fragment>
 
 </navigation>

@@ -28,29 +28,52 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_settings, container, false)
+       // return inflater.inflate(R.layout.test_settings, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val favButton = view.findViewById<ImageButton>(R.id.settings_favorite_button)
+        val backButton = view.findViewById<ImageButton>(R.id.backButton)
+        val profileButton = view.findViewById<View>(R.id.profileSection)
+        val myquoteButton = view.findViewById<View>(R.id.quotesSection)
+        val favoriteButton = view.findViewById<View>(R.id.favoritesSection)
+        val appearanceButton = view.findViewById<View>(R.id.appearanceSection)
+        val developerButton = view.findViewById<View>(R.id.aboutSection)
+        val logoutButton = view.findViewById<View>(R.id.logoutSection)
 
-        val logoutButton = view.findViewById<ImageView>(R.id.logout_button)
+        backButton.setOnClickListener {
 
+        }
 
+        profileButton.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_profileFragment)
+
+        }
+
+        myquoteButton.setOnClickListener {
+
+        }
+
+        favoriteButton.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_favoriteQuotesFragment)
+        }
+
+        appearanceButton.setOnClickListener {
+
+        }
+
+        developerButton.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_developerFragment)
+        }
 
         logoutButton.setOnClickListener {
-
-
             // i want to use the custom dialog here how?
 //            showLogoutDialog()
             showLogoutBottomSheet()
-
         }
 
-        favButton.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_favoriteQuotesFragment)
-        }
+
     }
 
 //    private fun showLogoutDialog() {
