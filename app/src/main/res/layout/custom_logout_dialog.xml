@@ -1,55 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/lavender_white"
-    android:padding="24dp">
+    android:background="@color/general_bg_color"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp">
 
+    <!-- Logo ImageView -->
+    <ImageView
+        android:layout_width="255dp"
+        android:layout_height="255dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/uplift_logo"/>
+
+    <!-- Bye Message Text 1 -->
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/bye_message1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout Confirmation"
-        android:textColor="@color/deep_blue"
+        android:layout_marginTop="-5dp"
+        android:text="You are Leaving, are you"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:fontFamily="@font/robotoserif_medium"/>
 
+    <!-- Bye Message Text 2 -->
     <TextView
-        android:id="@+id/tvMessage"
-        android:layout_width="match_parent"
+        android:id="@+id/bye_message2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Are you sure you'll log out?"
-        android:textColor="@color/black_bluish"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        android:text="sure you want to go?"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/robotoserif_medium"/>
 
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-
-        android:text="Cancel"
-        android:textColor="@color/deep_blue"
-        app:layout_constraintEnd_toStartOf="@id/btnLogout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvMessage" />
-
+    <!-- Logout Button -->
     <Button
         android:id="@+id/btnLogout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_width="314dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_logout_background"
+        android:backgroundTint="#4C4993"
+        android:text="Yes, log me out"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
 
-        android:text="Logout"
-        android:textColor="@color/lavender_white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnCancel"
-        app:layout_constraintTop_toTopOf="@id/btnCancel" />
+    <!-- Cancel Button -->
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="314dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_logout_background"
+        android:text="No, Go back"
+        android:textAllCaps="false"
+        android:textStyle="bold"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

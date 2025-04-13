@@ -38,10 +38,10 @@ fun EditText.stringed() : String{
 
 
 
-private fun startFlameAnimation(view: View) {
-    val flameImageView = view.findViewById<ImageView>(R.id.my_image_view)
-    val drawable = flameImageView?.drawable
-    if (drawable is Animatable) {
-        drawable.start()
-    }
-}
+//private fun startFlameAnimation(view: View) {
+//    val flameImageView = view.findViewById<ImageView>(R.id.my_image_view)
+//    val drawable = flameImageView?.drawable
+//    if (drawable is Animatable) {
+//        drawable.start()
+//    }
+//}

@@ -20,6 +20,9 @@ import com.android.newuplift.database.QuoteDao
 import com.android.newuplift.utility.AuthManager
 import com.android.newuplift.utility.pickMood
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 /**
  * Fix the bug of heart favorite the unheart should unfavorite not add it again in the db
@@ -29,6 +32,9 @@ import kotlinx.coroutines.launch
 class HomeFragment : Fragment() {
     private var tag: String = "Happy"
     private lateinit var quoteTextView: TextView
+    private lateinit var authorTextView: TextView
+    private lateinit var dateTextView: TextView
+    private lateinit var dayTextView: TextView
     private lateinit var buttonGenerateQuote: Button
     private lateinit var homeSpinner: Spinner
     private lateinit var choiceSpinner: String
@@ -49,7 +55,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        dateTextView = view.findViewById(R.id.date_MM_DD_YYYY)
+        dayTextView = view.findViewById(R.id.date_day)
+
+        val(formattedDate, formattedDay) = getCurrentFormattedDate()
+        dateTextView.text = formattedDate
+        dayTextView.text = formattedDay
+
         quoteTextView = view.findViewById(R.id.home_quote_view)
+        authorTextView = view.findViewById(R.id.author_quote_view)
+
         buttonGenerateQuote = view.findViewById(R.id.home_generate_button)
         homeSpinner = view.findViewById(R.id.home_spinner)
         heartButton = view.findViewById(R.id.btn_heart)
@@ -63,10 +78,10 @@ class HomeFragment : Fragment() {
 
         val adapter = ArrayAdapter(
             view.context,
-            android.R.layout.simple_spinner_item,
+            R.layout.home_spinner_item,
             arrayOf("Happy", "Lost", "Motivated", "Bored")
         )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        adapter.setDropDownViewResource(R.layout.home_spinner_dropdown_item)
         homeSpinner.adapter = adapter
 
         buttonGenerateQuote.setOnClickListener {
@@ -156,6 +171,18 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun getCurrentFormattedDate(): Pair<String, String>{
+        val calendar = Calendar.getInstance()
+
+        val dateFormatter = SimpleDateFormat("MMMM dd, yyyy", Locale.getDefault())
+        val dayFormatter = SimpleDateFormat("EEEE", Locale.getDefault())
+
+        val formattedDate = dateFormatter.format(calendar.time)
+        val formattedDay = dayFormatter.format(calendar.time)
+
+        return Pair(formattedDate, formattedDay)
+    }
+
     private fun fetchQuoteApi() {
         viewLifecycleOwner.lifecycleScope.launch {
             try {
@@ -164,8 +191,9 @@ class HomeFragment : Fragment() {
                 val content = quote.quote
                 val author = quote.author
                 val tagsDisplay = quote.tags.joinToString(", ")
-                val display = "\"$content\"\n- $author\n\nTags: $tagsDisplay"
+                val display = "\"$content\" \n\nTags: $tagsDisplay"
                 quoteTextView.text = display
+                authorTextView.text = "- $author"
                 saveQuote()
             } catch (e: Exception) {
                 e.printStackTrace()

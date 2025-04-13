@@ -10,8 +10,24 @@
 
     <color name="red">#CA0202</color>
 
+
+    <color name="dark_purple">#4C4993</color>
+    <color name="teal_darker">#BFC9EB</color>
+
     <color name="light_gray">#E6E6E6</color>
     <color name="medium_light_gray">#B0B0B0</color>
+
+    <!--General background-->
+    <color name="general_bg_color">#F4F5F1</color>
+    
+    <!-- login and register background 61AC9C 56C5AE-->
+    <color name="gradient_start">#61AC9C</color>
+    <color name="gradient_middle">#154538</color>
+
+    <!-- login button background -->
+    <color name="lgbtn_gradient_start">#322DAC</color>
+    <color name="lgbtn_gradient_middle">#231F79</color>
+    <color name="lgbtn_gradient_end">#141246</color>
 
     <!--main color scheme-->
 
@@ -21,4 +37,21 @@
     <color name="pastel_blue">#ADBBDA</color>
     <color name="lavender_white">#EDE8F5</color>
     <color name="black_bluish">#0A0F1F</color>
+
+
+    <color name="card_background">#FFFFFF</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="icon_color">#757575</color>
+    <color name="pill_background">#80000000</color>
+
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="background_color">#F5F5F5</color>
+
+    <color name="colorPrimary">#5E35B1</color>
+    <color name="colorPrimaryDark">#4527A0</color>
+    <color name="colorAccent">#FF5722</color>
+
+
 </resources>
