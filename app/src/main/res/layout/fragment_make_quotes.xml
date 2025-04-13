@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/general_bg_color"
     tools:context=".fragments.MakeQuotesFragment">
 
     <ScrollView
@@ -27,6 +28,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:gravity="center"
+                android:fontFamily="@font/robotoserif_bold"
                 android:layout_marginBottom="16dp"/>
 
             <com.google.android.material.card.MaterialCardView

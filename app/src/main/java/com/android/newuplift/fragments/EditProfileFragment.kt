@@ -83,7 +83,7 @@ class EditProfileFragment: Fragment() {
 
         // Load profile image if saved
         val prefs = requireContext().getSharedPreferences("ProfilePrefs", Context.MODE_PRIVATE)
-        val uriString = prefs.getString("profileImageUri", null)
+        val uriString = prefs.getString("profileImageUri_user_$userId", null)
         uriString?.let {
             val uri = Uri.parse(it)
             try {
@@ -93,7 +93,7 @@ class EditProfileFragment: Fragment() {
                 }
             } catch (e: SecurityException) {
                 // Handle expired permission (clear saved URI)
-                prefs.edit().remove("profileImageUri").apply()
+                prefs.edit().remove("profileImageUri_user_$userId").apply()
             }
         }
 
@@ -146,7 +146,8 @@ class EditProfileFragment: Fragment() {
                 // Save URI and set image
                 profileImageView.setImageURI(uri)
                 val prefs = requireContext().getSharedPreferences("ProfilePrefs", Context.MODE_PRIVATE)
-                prefs.edit().putString("profileImageUri", uri.toString()).apply()
+                val userId = AuthManager.currentUserId
+                prefs.edit().putString("profileImageUri_user_$userId", uri.toString()).apply()
             }
         }
     }

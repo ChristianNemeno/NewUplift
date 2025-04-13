@@ -73,7 +73,7 @@ class ProfileFragment : Fragment() {
 
         val profileImageView = view.findViewById<ImageView>(R.id.profileImageView)
         val prefs = requireContext().getSharedPreferences("ProfilePrefs", Context.MODE_PRIVATE)
-        val uriString = prefs.getString("profileImageUri", null)
+        val uriString = prefs.getString("profileImageUri_user_$userId", null)
         uriString?.let {
             val uri = Uri.parse(it)
             try {
@@ -83,7 +83,7 @@ class ProfileFragment : Fragment() {
                 }
             } catch (e: SecurityException) {
                 // Handle expired permission (clear saved URI)
-                prefs.edit().remove("profileImageUri").apply()
+                prefs.edit().remove("profileImageUri_user_$userId").apply()
             }
         }
 

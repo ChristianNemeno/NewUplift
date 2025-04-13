@@ -5,7 +5,7 @@
     android:id="@+id/fragment_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F5F1"
+    android:background="@color/general_bg_color"
     tools:context=".fragments.ProfileFragment">
 
     <LinearLayout
@@ -24,14 +24,15 @@
             android:id="@+id/backButton"
             android:layout_width="23dp"
             android:layout_height="23dp"
-            android:background="@drawable/arrowback"
+            android:background="@drawable/arrow_back"
             android:baselineAlignBottom="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="3dp"/>
+            android:layout_marginTop="1dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/robotoserif_bold"
             android:text="Profile"
             android:textSize="30sp"
             android:textColor="@color/black"
@@ -41,15 +42,18 @@
     </LinearLayout>
 
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profileImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:src="@drawable/default_profile"
-        android:scaleType="centerInside"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/CircularImage"
         android:background="@drawable/circle_background"
+
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_title" />

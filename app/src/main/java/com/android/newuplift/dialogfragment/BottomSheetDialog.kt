@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.android.newuplift.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -26,10 +27,12 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val v: View = inflater.inflate(R.layout.custom_logout_dialog, container, false)
+        val view: View = inflater.inflate(R.layout.custom_logout_dialog, container, false)
 
-        val confirmButton = v.findViewById<Button>(R.id.btnLogout)
-        val cancelButton = v.findViewById<Button>(R.id.btnCancel)
+        view.background = ContextCompat.getDrawable(requireContext(), R.drawable.bottom_sheet_background)
+
+        val confirmButton = view.findViewById<Button>(R.id.btnLogout)
+        val cancelButton = view.findViewById<Button>(R.id.btnCancel)
 
         confirmButton.setOnClickListener {
             logoutListener?.onLogoutConfirmed()
@@ -40,6 +43,6 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
             dismiss()
         }
 
-        return v
+        return view
     }
 }
