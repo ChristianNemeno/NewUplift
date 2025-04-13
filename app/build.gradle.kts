@@ -56,6 +56,7 @@ dependencies {
     implementation ("com.google.android.material:material:1.7.0")
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
+
     //
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

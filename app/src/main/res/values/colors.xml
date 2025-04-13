@@ -16,10 +16,11 @@
 
     <color name="light_gray">#E6E6E6</color>
     <color name="medium_light_gray">#B0B0B0</color>
+    <color name="gray">#979797</color>
 
     <!--General background-->
     <color name="general_bg_color">#F4F5F1</color>
-    
+
     <!-- login and register background 61AC9C 56C5AE-->
     <color name="gradient_start">#61AC9C</color>
     <color name="gradient_middle">#154538</color>
@@ -37,6 +38,8 @@
     <color name="pastel_blue">#ADBBDA</color>
     <color name="lavender_white">#EDE8F5</color>
     <color name="black_bluish">#0A0F1F</color>
+
+    <color name="purple_100">#4C4993</color>
 
 
     <color name="card_background">#FFFFFF</color>
