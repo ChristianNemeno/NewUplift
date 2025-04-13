@@ -43,7 +43,7 @@ class SettingsFragment : Fragment() {
         val logoutButton = view.findViewById<View>(R.id.logoutSection)
 
         backButton.setOnClickListener {
-
+            findNavController().navigate(R.id.action_settingsFragment_to_homeFragment)
         }
 
         profileButton.setOnClickListener {

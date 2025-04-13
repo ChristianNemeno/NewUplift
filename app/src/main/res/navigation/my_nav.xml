@@ -37,6 +37,11 @@
             app:popUpTo="@id/settingsFragment"
             app:popUpToInclusive="false"
             />
+        <action
+            android:id="@+id/action_settingsFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="false"/>
 
 
     </fragment>
@@ -45,12 +50,43 @@
         android:id="@+id/profileFragment"
         android:name="com.android.newuplift.fragments.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@+id/settingsFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="false"
+            />
+
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="false"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.android.newuplift.fragments.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile">
+
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@+id/profileFragment"
+            app:popUpTo="@id/editProfileFragment"
+            app:popUpToInclusive="false"
+            />
+
+    </fragment>
 
     <fragment
         android:id="@+id/favoriteQuotesFragment"
         android:name="com.android.newuplift.fragments.FavoriteQuotesFragment"
-        android:label="FavoriteQuotesFragment">
+        android:label="FavoriteQuotesFragment"
+        tools:layout="@layout/fragment_favorite_quotes">
         <action
             android:id="@+id/action_favoriteQuotes_to_editQuote"
             app:destination="@id/editQuoteFragment" />

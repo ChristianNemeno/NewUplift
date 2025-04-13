@@ -21,6 +21,7 @@
         >
 
         <ImageButton
+            android:id="@+id/backButton"
             android:layout_width="23dp"
             android:layout_height="23dp"
             android:background="@drawable/arrowback"
@@ -63,7 +64,7 @@
         <!--Name-->
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -76,7 +77,7 @@
             app:expandedHintEnabled="false"
             app:hintAnimationEnabled="false"
             app:hintEnabled="true"
-            app:hintTextColor="@color/gray">
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nameEditText"
@@ -87,7 +88,11 @@
                 android:maxLength="25"
                 android:paddingVertical="9dp"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:focusable="false"
+                android:clickable="false"
+                android:cursorVisible="false"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,7 +100,7 @@
         <!--UserName-->
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -119,14 +124,17 @@
                 android:maxLength="25"
                 android:paddingVertical="9dp"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:focusable="false"
+                android:clickable="false"
+                android:cursorVisible="false"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--Address-->
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -150,14 +158,17 @@
                 android:maxLength="25"
                 android:paddingVertical="9dp"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:focusable="false"
+                android:clickable="false"
+                android:cursorVisible="false"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--Phone number-->
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -181,14 +192,17 @@
                 android:maxLength="25"
                 android:paddingVertical="9dp"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:focusable="false"
+                android:clickable="false"
+                android:cursorVisible="false"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--Email-->
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
