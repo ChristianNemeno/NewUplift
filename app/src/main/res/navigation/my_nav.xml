@@ -50,7 +50,11 @@
     <fragment
         android:id="@+id/favoriteQuotesFragment"
         android:name="com.android.newuplift.fragments.FavoriteQuotesFragment"
-        android:label="FavoriteQuotesFragment" />
+        android:label="FavoriteQuotesFragment">
+        <action
+            android:id="@+id/action_favoriteQuotes_to_editQuote"
+            app:destination="@id/editQuoteFragment" />
+    </fragment>
 
 
     <fragment
@@ -68,6 +72,37 @@
             android:id="@+id/action_myQuotes_to_makeQuotesFragment"
             app:destination="@id/makeQuotesFragment"
             app:popUpTo="@id/myQuotes"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_myQuotes_to_quoteDetails"
+            app:destination="@id/quoteDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/quoteDetailsFragment"
+        android:name="com.android.newuplift.fragments.QuoteDetailsFragment"
+        android:label="fragment_quote_details"
+        tools:layout="@layout/fragment_quote_details">
+        <argument
+            android:name="quote"
+            app:argType="com.android.newuplift.utility.Quote" />
+        <action
+            android:id="@+id/action_quoteDetails_to_editQuote"
+            app:destination="@id/editQuoteFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editQuoteFragment"
+        android:name="com.android.newuplift.fragments.EditQuoteFragment"
+        android:label="fragment_edit_quote"
+        tools:layout="@layout/fragment_edit_quote">
+        <argument
+            android:name="quote"
+            app:argType="com.android.newuplift.utility.Quote" />
+        <action
+            android:id="@+id/action_editQuote_to_quoteDetails"
+            app:destination="@id/quoteDetailsFragment"
+            app:popUpTo="@id/quoteDetailsFragment"
             app:popUpToInclusive="false" />
     </fragment>
 

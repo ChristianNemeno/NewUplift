@@ -223,7 +223,25 @@ class QuoteDao(private val db: SQLiteDatabase) {
         }
         return quotes
     }
-
+    fun updateQuote(quote: Quote, userId: Int): Int {
+        val values = ContentValues().apply {
+            put(COLUMN_QUOTE, quote.quote)
+            put(COLUMN_TAGS, quote.tags.joinToString(", "))
+            put(COLUMN_IS_FAVORITE, if (quote.isFavorite) 1 else 0)
+            put(COLUMN_LENGTH, quote.quote.length)
+        }
+        try {
+            return db.update(
+                TABLE_NAME,
+                values,
+                "$COLUMN_ID = ? AND $COLUMN_USER_ID = ?",
+                arrayOf(quote.id.toString(), userId.toString())
+            )
+        } catch (e: Exception) {
+            Log.e("QuoteDao", "Error updating quote: ${e.message}")
+            return 0
+        }
+    }
 
     // ------------------------------------------------------------------------------
 }
