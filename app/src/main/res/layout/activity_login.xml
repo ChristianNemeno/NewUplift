@@ -85,6 +85,7 @@
         android:padding="12dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
+        android:inputType="textPassword"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
