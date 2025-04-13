@@ -36,8 +36,7 @@ class SettingsFragment : Fragment() {
 
         val backButton = view.findViewById<ImageButton>(R.id.backButton)
         val profileButton = view.findViewById<View>(R.id.profileSection)
-        val myquoteButton = view.findViewById<View>(R.id.quotesSection)
-        val favoriteButton = view.findViewById<View>(R.id.favoritesSection)
+
         val appearanceButton = view.findViewById<View>(R.id.appearanceSection)
         val developerButton = view.findViewById<View>(R.id.aboutSection)
         val logoutButton = view.findViewById<View>(R.id.logoutSection)
@@ -49,14 +48,6 @@ class SettingsFragment : Fragment() {
         profileButton.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_profileFragment)
 
-        }
-
-        myquoteButton.setOnClickListener {
-
-        }
-
-        favoriteButton.setOnClickListener {
-            findNavController().navigate(R.id.action_settingsFragment_to_favoriteQuotesFragment)
         }
 
         appearanceButton.setOnClickListener {
@@ -114,7 +105,9 @@ class SettingsFragment : Fragment() {
         bottomSheetDialog.setLogoutListener(object : BottomSheetDialog.LogoutListener {
             override fun onLogoutConfirmed() {
                 AuthManager.logout(requireContext())
-                startActivity(Intent(context, LogoutActivity::class.java))
+                val intent = Intent(requireContext(), LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
             }
         })
 

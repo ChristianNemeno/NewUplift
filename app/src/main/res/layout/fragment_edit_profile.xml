@@ -53,12 +53,14 @@
 
             <!-- Profile Image -->
             <ImageView
-                android:id="@+id/profileImage"
+                android:id="@+id/profileImageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/profile_picture"
+                android:src="@drawable/default_profile"
+                android:scaleType="centerInside"
+                android:background="@drawable/circle_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -72,7 +74,7 @@
                 android:backgroundTint="@color/purple_100"
                 android:text="Edit Picture"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@id/profileImage"
+                app:layout_constraintTop_toBottomOf="@id/profileImageView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="20dp"
@@ -221,7 +223,7 @@
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:inputType="textPersonName"
-                        android:maxLength="25"
+                        android:maxLength="100"
                         android:paddingVertical="9dp"
                         android:textColor="@color/black"
                         android:textSize="16dp" />

@@ -244,4 +244,44 @@ class QuoteDao(private val db: SQLiteDatabase) {
     }
 
     // ------------------------------------------------------------------------------
+    fun getUserDetails(userId: Int): UserAccount? {
+        val cursor: Cursor = db.query(
+            TABLE_NAME_USER,
+            null,
+            "$COLUMN_USER_PK = ?",
+            arrayOf(userId.toString()),
+            null,
+            null,
+            null
+        )
+
+        cursor.use {
+            return if (it.moveToFirst()) {
+                UserAccount(
+                    name = it.getString(it.getColumnIndexOrThrow(COLUMN_NAME)),
+                    username = it.getString(it.getColumnIndexOrThrow(COLUMN_USER)),
+                    password = "", // Don't expose password
+                    email = it.getString(it.getColumnIndexOrThrow(COLUMN_EMAIL)),
+                    address = it.getString(it.getColumnIndexOrThrow(COLUMN_ADDRESS)),
+                    number = it.getString(it.getColumnIndexOrThrow(COLUMN_NUMBER))
+                )
+            } else {
+                null
+            }
+        }
+    }
+
+//------------------------------------------------------------------------------
+fun updateUserDetails(userId: Int, updatedUser: UserAccount): Int {
+    val values = ContentValues().apply {
+        put("name", updatedUser.name)
+        put("username", updatedUser.username)
+        put("email", updatedUser.email)
+        put("address", updatedUser.address)
+        put("number", updatedUser.number)
+    }
+    return db.update("users", values, "u_id = ?", arrayOf(userId.toString()))
+}
+
+// ------------------------------------------------------------------------------
 }
