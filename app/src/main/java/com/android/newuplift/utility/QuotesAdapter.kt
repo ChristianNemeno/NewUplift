@@ -1,6 +1,5 @@
 package com.android.newuplift.utility
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,34 +9,31 @@ import com.android.newuplift.R
 
 class QuotesAdapter(
     private var quotes: List<Quote>,
-    private val onQuoteClicked: (Quote) -> Unit = { _ -> }
+    private val onQuoteClick: (Quote) -> Unit = {}
 ) : RecyclerView.Adapter<QuotesAdapter.QuoteViewHolder>() {
 
     class QuoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvQuoteContent: TextView = itemView.findViewById(R.id.tvQuoteContent)
-        val tvAuthor: TextView = itemView.findViewById(R.id.tvAuthor)
-    }
-
-    override fun getItemViewType(position: Int): Int {
-        return if (quotes[position].isUserMade) R.layout.quote_item_user_made else R.layout.quote_item
+        val quoteText: TextView = itemView.findViewById(R.id.tvQuoteContent)
+        val authorText: TextView = itemView.findViewById(R.id.tvAuthor)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuoteViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_quote, parent, false)
         return QuoteViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: QuoteViewHolder, position: Int) {
         val quote = quotes[position]
-        holder.tvQuoteContent.text = quote.quote
-        holder.tvAuthor.text = quote.author ?: "Unknown"
+        holder.quoteText.text = quote.quote
+        holder.authorText.text = quote.author
+
         holder.itemView.setOnClickListener {
-            onQuoteClicked(quote)
+            onQuoteClick(quote)
         }
-        Log.d("QuotesAdapter", "Binding quoteId=${quote.id}, isUserMade=${quote.isUserMade}")
     }
 
-    override fun getItemCount() = quotes.size
+    override fun getItemCount(): Int = quotes.size
 
     fun updateQuotes(newQuotes: List<Quote>) {
         quotes = newQuotes

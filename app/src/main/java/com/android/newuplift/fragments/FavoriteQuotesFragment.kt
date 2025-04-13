@@ -2,12 +2,13 @@ package com.android.newuplift.fragments
 
 import QuotesViewModelFactory
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.newuplift.R
@@ -24,17 +25,10 @@ class FavoriteQuotesFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var quotesAdapter: QuotesAdapter
-    private lateinit var layoutManager: LinearLayoutManager
-    private var savedRecyclerViewState: Bundle? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        savedRecyclerViewState = savedInstanceState?.getBundle("recycler_state")
-    }
+    private lateinit var emptyStateTextView: TextView
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_favorite_quotes, container, false)
@@ -44,51 +38,56 @@ class FavoriteQuotesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView = view.findViewById(R.id.recyclerViewQuotes)
-        layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.layoutManager = layoutManager
+        emptyStateTextView = view.findViewById(R.id.emptyStateText)
+
+        recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(false)
         recyclerView.isNestedScrollingEnabled = true
 
-        quotesAdapter = QuotesAdapter(emptyList())
+        quotesAdapter = QuotesAdapter(
+            emptyList(),
+            onQuoteClick = { quote ->
+                val action = FavoriteQuotesFragmentDirections.actionFavoriteQuotesToEditQuote(quote)
+                findNavController().navigate(action)
+            }
+        )
         recyclerView.adapter = quotesAdapter
 
-        // Restore scroll state
-        savedRecyclerViewState?.let {
-            layoutManager.onRestoreInstanceState(it.getParcelable("layout_state"))
-        }
-
         viewModel.quotes.observe(viewLifecycleOwner) { quotes ->
-            Log.d("FavoriteQuotes", "Quotes updated: ${quotes.size} items")
             quotesAdapter.updateQuotes(quotes)
         }
 
         viewModel.uiState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is QuotesViewModel.UiState.Loading -> {
-                    Log.d("FavoriteQuotes", "Loading quotes...")
+                    emptyStateTextView.visibility = View.GONE
                 }
                 is QuotesViewModel.UiState.Success -> {
-                    showToast("Favorites loaded")
+                    emptyStateTextView.visibility = View.GONE
+                    showToast("Favorite quotes loaded")
                 }
                 is QuotesViewModel.UiState.Empty -> {
-                    showToast("No favorite quotes yet")
+                    emptyStateTextView.visibility = View.VISIBLE
                 }
                 is QuotesViewModel.UiState.Error -> {
+                    emptyStateTextView.visibility = View.GONE
                     showToast(state.message)
+                }
+                is QuotesViewModel.UiState.UpdateSuccess -> {
+                    // No action needed
+                }
+                is QuotesViewModel.UiState.UpdateError -> {
+                    // No action needed
+                }
+                is QuotesViewModel.UiState.FavoriteToggled -> {
+                    showToast("Favorite status updated")
                 }
             }
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        val recyclerState = Bundle()
-        recyclerState.putParcelable("layout_state", layoutManager.onSaveInstanceState())
-        outState.putBundle("recycler_state", recyclerState)
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() = FavoriteQuotesFragment()
+    override fun onStart() {
+        super.onStart()
+        viewModel.loadQuotes()
     }
 }
