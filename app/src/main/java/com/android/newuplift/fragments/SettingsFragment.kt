@@ -30,7 +30,6 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_settings, container, false)
-       // return inflater.inflate(R.layout.test_settings, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -64,53 +63,18 @@ class SettingsFragment : Fragment() {
         }
 
         logoutButton.setOnClickListener {
-            // i want to use the custom dialog here how?
-//            showLogoutDialog()
             showLogoutBottomSheet()
         }
 
 
     }
 
-//    private fun showLogoutDialog() {
-//        context?.let { ctx ->
-//            val dialog = Dialog(ctx)
-//            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-//            dialog.setContentView(R.layout.custom_logout_dialog)
-//
-//            dialog.window?.apply {
-//                setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-//                val width = (ctx.resources.displayMetrics.widthPixels * 0.9).toInt()
-//                setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
-//            }
-//
-//            val btnCancel = dialog.findViewById<Button>(R.id.btnCancel)
-//            val btnLogout = dialog.findViewById<Button>(R.id.btnLogout)
-//
-//            btnCancel.background = ContextCompat.getDrawable(ctx, R.drawable.button_cancel_background)
-//            btnLogout.background = ContextCompat.getDrawable(ctx, R.drawable.button_logout_background)
-//
-//            btnCancel.setOnClickListener {
-//                dialog.dismiss()
-//            }
-//
-//            btnLogout.setOnClickListener {
-//                AuthManager.logout(requireContext())
-//                println("Current user id $AuthManager.currentUserId")
-//                dialog.dismiss()
-//                startActivity(Intent(context, LogoutActivity::class.java))
-//            }
-//
-//            dialog.show()
-//        }
-//    }
-
     private fun showLogoutBottomSheet(){
         val bottomSheetDialog = com.android.newuplift.dialogfragment.BottomSheetDialog()
         bottomSheetDialog.setLogoutListener(object : BottomSheetDialog.LogoutListener {
             override fun onLogoutConfirmed() {
                 AuthManager.logout(requireContext())
-                val intent = Intent(requireContext(), LoginActivity::class.java)
+                val intent = Intent(requireContext(), LogoutActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
             }

@@ -196,11 +196,10 @@ class HomeFragment : Fragment() {
                 val content = quote.quote
                 val author = quote.author
                 val tagsDisplay = quote.tags.joinToString(", ")
-//                val display = "\"$content\" \n\nTags: $tagsDisplay"
                 val display = "\"$content\""
                 quoteTextView.text = display
                 authorTextView.text = "- $author"
-                saveQuote()
+                //saveQuote()
             } catch (e: Exception) {
                 e.printStackTrace()
                 currentQuote = null

@@ -98,8 +98,13 @@ class EditProfileFragment: Fragment() {
         }
 
         editProfileImageButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+                addCategory(Intent.CATEGORY_OPENABLE)
+                type = "image/*"
+                // Add these flags to request persistable permissions
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
+            }
             startActivityForResult(intent, pickImageRequestCode)
         }
 
@@ -138,16 +143,20 @@ class EditProfileFragment: Fragment() {
         if (requestCode == pickImageRequestCode && resultCode == AppCompatActivity.RESULT_OK) {
             val imageUri = data?.data
             imageUri?.let { uri ->
-                // Take persistable permission
-                requireContext().contentResolver.takePersistableUriPermission(
-                    uri,
-                    Intent.FLAG_GRANT_READ_URI_PERMISSION
-                )
-                // Save URI and set image
-                profileImageView.setImageURI(uri)
-                val prefs = requireContext().getSharedPreferences("ProfilePrefs", Context.MODE_PRIVATE)
-                val userId = AuthManager.currentUserId
-                prefs.edit().putString("profileImageUri_user_$userId", uri.toString()).apply()
+                try {
+                    requireContext().contentResolver.takePersistableUriPermission(
+                        uri,
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    )
+                    // Save URI and set image
+                    profileImageView.setImageURI(uri)
+                    val prefs = requireContext().getSharedPreferences("ProfilePrefs", Context.MODE_PRIVATE)
+                    val userId = AuthManager.currentUserId
+                    prefs.edit().putString("profileImageUri_user_$userId", uri.toString()).apply()
+                } catch (e: SecurityException) {
+                    Toast.makeText(context, "Unable to access the selected image permanently", Toast.LENGTH_SHORT).show()
+                    profileImageView.setImageURI(uri)
+                }
             }
         }
     }

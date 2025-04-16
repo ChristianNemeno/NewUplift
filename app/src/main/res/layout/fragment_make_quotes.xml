@@ -197,10 +197,11 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/saveQuoteButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bgbuttons"
         android:text="Save Quote"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
