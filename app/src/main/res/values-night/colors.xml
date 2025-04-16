@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_primary">@color/general_bg_color_dark</color>
+    <color name="bottom_nav_background">#09083D</color>
+    <color name="color_active_indicator">@color/teal_darker</color>
+    <color name="bottom_nav_text">@color/teal_darker</color>
+    <color name="header_text">@color/white</color>
+    <color name="author_text">@color/white</color>
+    <color name="quote_text">#F4F5F1</color>
+    <color name="textInput_color">@color/light_gray</color>
+    <color name="textField_color">@color/white</color>
+    <color name="settings_stroke">@color/white</color>
+    <color name="settings_bg">#48454e</color>
+    <color name="signup_bg">#424242</color>
+    <color name="dev_at">#C8C8C8</color>
+    <color name="WtoB">@color/black</color>
+    <color name="BtoW">@color/white</color>
+</resources>

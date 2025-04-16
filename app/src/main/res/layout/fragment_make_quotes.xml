@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+
     tools:context=".fragments.MakeQuotesFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/saveQuoteButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,11 +25,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/header_text"
                 android:text="Create Your Quote"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:layout_marginBottom="16dp"/>
+                android:fontFamily="@font/robotoserif_bold"
+                android:layout_marginBottom="16dp"
+                />
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -56,6 +61,7 @@
                             android:layout_height="wrap_content"
                             android:inputType="textMultiLine"
                             android:minLines="3"
+                            android:textColor="@color/textField_color"
                             android:gravity="top|start"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,6 +85,7 @@
                             android:id="@+id/authorEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/textField_color"
                             android:inputType="textPersonName"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -100,6 +107,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textField_color"
                         android:text="Tags"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -117,6 +125,7 @@
                             android:id="@+id/tagEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/textField_color"
                             android:inputType="text"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -151,6 +160,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textField_color"
                         android:text="Preview"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -160,6 +170,7 @@
                         android:id="@+id/previewQuoteTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textField_color"
                         android:textSize="18sp"
                         android:textStyle="italic"
                         android:gravity="center"
@@ -180,6 +191,7 @@
                 android:id="@+id/favoriteSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/textField_color"
                 android:text="Add to favorites"
                 android:layout_marginBottom="16dp"/>
         </LinearLayout>

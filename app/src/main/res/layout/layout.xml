@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/general_bg_color_light">
+
+    <!-- Header Layout -->
+    <LinearLayout
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="20dp">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:background="@drawable/arrow_back"
+            android:baselineAlignBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="1dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotoserif_bold"
+            android:text="Aboout the developers"
+            android:textSize="27sp"
+            android:textColor="@color/black"
+            android:paddingStart="20dp"/>
+    </LinearLayout>
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <!-- Developer Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/developer_alan_Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardPreventCornerOverlap="true"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Name and handle row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/settings_profile_icon"
+                            android:background="@drawable/developer_circular_profile_bj"
+                            android:padding="8dp"
+                            android:layout_marginEnd="12dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/developer_Name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Alan Christian Neis"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/developer_Handle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="\@my_neis_hurts"
+                                android:textColor="#666666"
+                                android:textSize="14sp"
+                                android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Description -->
+                    <TextView
+                        android:id="@+id/developer_Description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Full-stack developer with a passion for AI and game design. When not coding, you'll find him composing chiptune music or speedrunning retro games. Believes the best code is both efficient and elegant."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="4dp"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Developer Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/developerCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardPreventCornerOverlap="true"
+                app:layout_constraintTop_toBottomOf="@id/developer_alan_Card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Name and handle row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/settings_profile_icon"
+                            android:background="@drawable/developer_circular_profile_bj"
+                            android:padding="8dp"
+                            android:layout_marginEnd="12dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/developerName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Christian Nemeño"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/developerHandle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="\@chand_suisch"
+                                android:textColor="#666666"
+                                android:textSize="14sp"
+                                android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Description -->
+                    <TextView
+                        android:id="@+id/developerDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="UX specialist who turns coffee into beautiful interfaces. Started programming at 12 by modding Minecraft. Secret talent: can recite π to 50 digits while solving Rubik's cubes."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="4dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Team Vision Section -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/teamVisionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:layout_constraintTop_toBottomOf="@id/developerCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Team Vision Title -->
+                    <TextView
+                        android:id="@+id/teamVisionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Team Vision"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="#EEEEEE"/>
+
+                    <!-- Team Vision Text -->
+                    <TextView
+                        android:id="@+id/teamVisionText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="&quot;To inspire and elevate everyday life by transforming emotions into empowering quotes. Uplift harnesses the power of AI to create personalized, mood-driven affirmations that brighten moments, spark motivation, and foster positivity—one quote at a time.&quot;"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="4dp"
+                        android:textStyle="italic"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Team Mission Section -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/teamMissionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:layout_constraintTop_toBottomOf="@id/teamVisionCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Team Mission Title -->
+                    <TextView
+                        android:id="@+id/teamMissionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Our Mission"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="#EEEEEE"/>
+
+                    <!-- Team Mission Text -->
+                    <TextView
+                        android:id="@+id/teamMissionText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="To create technology that makes mental wellness accessible to all. Through thoughtful design and ethical AI, we're building tools that help people pause, reflect, and find moments of peace in their digital lives."
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="4dp"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

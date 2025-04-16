@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="active_indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">
-            @color/teal_darker
-        </item>
+        <item name="android:color">@color/color_active_indicator</item>
+        <item name="android:fontFamily">@font/robotoserif_bold</item>
+    </style>
 
-        <item name="android:fontFamily">
-            @font/robotoserif_bold
-        </item>
+    <style name="CircularImage" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

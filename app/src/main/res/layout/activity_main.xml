@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
 
-        android:background="#09083D"
+        android:background="@color/bottom_nav_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
         app:menu="@menu/bottom_menu"
-        app:itemTextColor="#BFC9EB"
+        app:itemTextColor="@color/bottom_nav_text"
         app:itemIconTint="@color/dark_purple"
         app:itemActiveIndicatorStyle="@style/active_indicator"/>
 
@@ -27,6 +27,7 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/background_primary"
 
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"

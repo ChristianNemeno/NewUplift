@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-parcelize")
+    id ("androidx.navigation.safeargs.kotlin")
+
 }
 
 android {
@@ -55,6 +58,7 @@ dependencies {
 
     implementation ("com.google.android.material:material:1.7.0")
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
 
     //
     implementation(libs.androidx.core.ktx)

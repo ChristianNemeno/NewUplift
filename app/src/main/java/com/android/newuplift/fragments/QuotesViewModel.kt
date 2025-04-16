@@ -12,13 +12,8 @@ import com.android.newuplift.utility.Quote
 import com.android.newuplift.utility.QuoteType
 import kotlinx.coroutines.launch
 
-
-
 class QuotesViewModel(
     private val databaseHelper: DatabaseHelper,
-    /**
-     * QuoteType is in data classes util
-     */
     private val quoteType: QuoteType
 ) : ViewModel() {
 
@@ -50,10 +45,47 @@ class QuotesViewModel(
         }
     }
 
+    fun updateQuote(quote: Quote, userId: Int) {
+        viewModelScope.launch {
+            try {
+                val rowsAffected = quoteDao.updateQuote(quote, userId)
+                if (rowsAffected > 0) {
+                    loadQuotes()
+                    _uiState.postValue(UiState.UpdateSuccess)
+                } else {
+                    _uiState.postValue(UiState.UpdateError("Failed to update quote"))
+                }
+            } catch (e: Exception) {
+                Log.e("QuotesVM", "Error updating quote: ${e.message}")
+                _uiState.postValue(UiState.UpdateError("Error updating quote: ${e.message}"))
+            }
+        }
+    }
+
+    fun toggleFavorite(quoteId: Int, isFavorite: Boolean, userId: Int) {
+        viewModelScope.launch {
+            try {
+                val rowsAffected = quoteDao.updateFavorite(quoteId, userId, isFavorite)
+                if (rowsAffected > 0) {
+                    loadQuotes()
+                    _uiState.postValue(UiState.FavoriteToggled)
+                } else {
+                    _uiState.postValue(UiState.Error("Failed to update favorite status"))
+                }
+            } catch (e: Exception) {
+                Log.e("QuotesVM", "Error toggling favorite: ${e.message}")
+                _uiState.postValue(UiState.Error("Error toggling favorite"))
+            }
+        }
+    }
+
     sealed class UiState {
         object Loading : UiState()
         object Success : UiState()
         object Empty : UiState()
         data class Error(val message: String) : UiState()
+        object UpdateSuccess : UiState()
+        data class UpdateError(val message: String) : UiState()
+        object FavoriteToggled : UiState()
     }
 }
