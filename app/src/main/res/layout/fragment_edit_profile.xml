@@ -5,7 +5,7 @@
     android:id="@+id/fragment_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/general_bg_color"
+
     tools:context=".fragments.ProfileFragment">
 
     <!-- Header Layout -->
@@ -35,7 +35,7 @@
             android:fontFamily="@font/robotoserif_bold"
             android:text="Edit Profile"
             android:textSize="30sp"
-            android:textColor="@color/black"
+            android:textColor="@color/header_text"
             android:paddingStart="20dp"/>
     </LinearLayout>
 
@@ -122,7 +122,7 @@
                         android:inputType="textPersonName"
                         android:maxLength="25"
                         android:paddingVertical="9dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/textField_color"
                         android:textSize="16dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -149,7 +149,7 @@
                         android:inputType="textPersonName"
                         android:maxLength="25"
                         android:paddingVertical="9dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/textField_color"
                         android:textSize="16dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -176,7 +176,7 @@
                         android:inputType="textPersonName"
                         android:maxLength="25"
                         android:paddingVertical="9dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/textField_color"
                         android:textSize="16dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -203,7 +203,7 @@
                         android:inputType="textPersonName"
                         android:maxLength="25"
                         android:paddingVertical="9dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/textField_color"
                         android:textSize="16dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -230,7 +230,7 @@
                         android:inputType="textPersonName"
                         android:maxLength="100"
                         android:paddingVertical="9dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/textField_color"
                         android:textSize="16dp" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>

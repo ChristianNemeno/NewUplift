@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/general_bg_color">
+    >
 
     <!-- Header Layout -->
     <LinearLayout
@@ -35,7 +35,7 @@
             android:fontFamily="@font/robotoserif_bold"
             android:text="About the developers"
             android:textSize="28sp"
-            android:textColor="@color/black"
+            android:textColor="@color/header_text"
             android:paddingStart="20dp"/>
     </LinearLayout>
 
@@ -59,7 +59,7 @@
                 android:layout_marginTop="24dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@android:color/white"
+                app:cardBackgroundColor="@color/settings_bg"
                 app:cardPreventCornerOverlap="true"
                 tools:ignore="MissingConstraints">
 
@@ -94,7 +94,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Alan Christian Neis"
-                                android:textColor="@color/black"
+                                android:textColor="@color/textField_color"
                                 android:textSize="18sp"
                                 android:textStyle="bold"/>
 
@@ -103,7 +103,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="\@my_neis_hurts"
-                                android:textColor="#666666"
+                                android:textColor="@color/dev_at"
                                 android:textSize="14sp"
                                 android:layout_marginTop="2dp"/>
                         </LinearLayout>
@@ -116,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="Full-stack developer with a passion for AI and game design. When not coding, you'll find him composing chiptune music or speedrunning retro games. Believes the best code is both efficient and elegant."
-                        android:textColor="@color/black"
+                        android:textColor="@color/textField_color"
                         android:textSize="16sp"
                         android:lineSpacingExtra="4dp"/>
 
@@ -131,7 +131,7 @@
                 android:layout_marginTop="24dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@android:color/white"
+                app:cardBackgroundColor="@color/settings_bg"
                 app:cardPreventCornerOverlap="true"
                 app:layout_constraintTop_toBottomOf="@id/developer_alan_Card">
 
@@ -166,7 +166,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Christian Nemeño"
-                                android:textColor="@color/black"
+                                android:textColor="@color/textField_color"
                                 android:textSize="18sp"
                                 android:textStyle="bold"/>
 
@@ -175,7 +175,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="\@chand_suisch"
-                                android:textColor="#666666"
+                                android:textColor="@color/dev_at"
                                 android:textSize="14sp"
                                 android:layout_marginTop="2dp"/>
                         </LinearLayout>
@@ -188,7 +188,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="UX specialist who turns coffee into beautiful interfaces. Started programming at 12 by modding Minecraft. Secret talent: can recite π to 50 digits while solving Rubik's cubes."
-                        android:textColor="@color/black"
+                        android:textColor="@color/textField_color"
                         android:textSize="16sp"
                         android:lineSpacingExtra="4dp"/>
                 </LinearLayout>
@@ -202,7 +202,7 @@
                 android:layout_marginTop="24dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@android:color/white"
+                app:cardBackgroundColor="@color/settings_bg"
                 app:layout_constraintTop_toBottomOf="@id/developerCard">
 
                 <LinearLayout
@@ -217,7 +217,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Team Vision"
-                        android:textColor="@color/black"
+                        android:textColor="@color/textField_color"
                         android:textSize="20sp"
                         android:textStyle="bold"/>
 
@@ -235,7 +235,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="&quot;To inspire and elevate everyday life by transforming emotions into empowering quotes. Uplift harnesses the power of AI to create personalized, mood-driven affirmations that brighten moments, spark motivation, and foster positivity—one quote at a time.&quot;"
-                        android:textColor="@color/black"
+                        android:textColor="@color/textField_color"
                         android:textSize="16sp"
                         android:lineSpacingExtra="4dp"
                         android:textStyle="italic"/>
@@ -251,7 +251,7 @@
                 android:layout_marginTop="16dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@android:color/white"
+                app:cardBackgroundColor="@color/settings_bg"
                 app:layout_constraintTop_toBottomOf="@id/teamVisionCard">
 
                 <LinearLayout
@@ -266,7 +266,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Our Mission"
-                        android:textColor="@color/black"
+                        android:textColor="@color/textField_color"
                         android:textSize="20sp"
                         android:textStyle="bold"/>
 
@@ -284,7 +284,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="To create technology that makes mental wellness accessible to all. Through thoughtful design and ethical AI, we're building tools that help people pause, reflect, and find moments of peace in their digital lives."
-                        android:textColor="@color/black"
+                        android:textColor="@color/textField_color"
                         android:textSize="16sp"
                         android:lineSpacingExtra="4dp"/>
 

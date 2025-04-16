@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/general_bg_color"
+
     tools:context=".fragments.SettingsFragment">
 
     <!-- Back button and title -->
@@ -15,7 +15,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="42dp"
         android:background="@drawable/arrow_back"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/header_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -28,7 +28,7 @@
         android:layout_marginTop="30dp"
         android:fontFamily="@font/robotoserif_bold"
         android:text="Settings"
-        android:textColor="@color/black"
+        android:textColor="@color/header_text"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@id/backButton"
         app:layout_constraintTop_toTopOf="parent" />
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Profile"
-                android:textColor="@color/black"
+                android:textColor="@color/textField_color"
                 android:textSize="18sp"
                 android:fontFamily="@font/robotoserif_medium"/>
 
@@ -78,45 +78,11 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/settings_arrow_forward_ios_24"
-                app:tint="@color/black" />
+                app:tint="@color/textField_color" />
         </LinearLayout>
 
 
-        <!-- Appearance -->
-        <LinearLayout
-            android:id="@+id/appearanceSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingVertical="16dp"
-            android:paddingEnd="32dp"
-            android:paddingStart="30dp"
-            >
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="3dp"
-                android:src="@drawable/settings_appearance_icon"
-                />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Appearance"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:fontFamily="@font/robotoserif_medium"/>
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/settings_arrow_forward_ios_24"
-                app:tint="@color/black"/>
-        </LinearLayout>
 
 
 
@@ -145,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="About the developers"
-                android:textColor="@color/black"
+                android:textColor="@color/textField_color"
                 android:textSize="18sp"
                 android:fontFamily="@font/robotoserif_medium"/>
 
@@ -153,7 +119,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/settings_arrow_forward_ios_24"
-                app:tint="@color/black"/>
+                app:tint="@color/textField_color"/>
         </LinearLayout>
 
         <!-- Log out -->
@@ -182,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Log out"
-                android:textColor="@color/black"
+                android:textColor="@color/textField_color"
                 android:textSize="18sp"
                 android:fontFamily="@font/robotoserif_medium"/>
 
@@ -190,7 +156,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/settings_arrow_forward_ios_24"
-                app:tint="@color/black"/>
+                app:tint="@color/textField_color"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -225,17 +191,16 @@
                 android:src="@drawable/settings_appearance_icon"
                 />
 
-
-
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/appearanceSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Appearance"
-                android:textColor="@color/black"
+                android:textColor="@color/textField_color"
                 android:textSize="18sp"
                 android:fontFamily="@font/robotoserif_medium"
             />
+
         </LinearLayout>
 
     </LinearLayout>

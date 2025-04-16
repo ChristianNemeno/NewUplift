@@ -3,7 +3,7 @@
     android:shape="rectangle">
 
     <!-- Fill with 88% opacity white -->
-    <solid android:color="#E0FFFFFF" /> <!-- #E0 = 88% opacity of white -->
+    <solid android:color="@color/signup_bg" /> <!-- #E0 = 88% opacity of white -->
 
     <!-- 10dp corner radius on all corners -->
     <corners android:radius="10dp" />
@@ -11,7 +11,7 @@
     <!-- 2dp inner stroke with 88% opacity black -->
     <stroke
         android:width="1dp"
-        android:color="#E0000000" /> <!-- #E0 = 88% opacity of black -->
+        android:color="@color/header_text" /> <!-- #E0 = 88% opacity of black -->
 
     <!-- Padding to ensure stroke appears inside -->
     <padding

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/general_bg_color"
+
     tools:context=".fragments.MyQuotesFragment">
 
     <!-- Header Layout -->
@@ -25,7 +25,7 @@
             android:fontFamily="@font/robotoserif_bold"
             android:text="My Quotes"
             android:textSize="30sp"
-            android:textColor="@color/black"
+            android:textColor="@color/header_text"
             android:paddingStart="25dp"/>
     </LinearLayout>
 

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/general_bg_color"
+    android:background="@color/general_bg_color_light"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:padding="16dp">
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-5dp"
         android:text="You are Leaving, are you"
-        android:textColor="@color/black"
+        android:textColor="@color/header_text"
         android:textSize="20sp"
         android:textStyle="bold"
         android:fontFamily="@font/robotoserif_medium"/>
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="sure you want to go?"
-        android:textColor="@color/black"
+        android:textColor="@color/header_text"
         android:textSize="20sp"
         android:textStyle="bold"
         android:fontFamily="@font/robotoserif_medium"/>
@@ -60,6 +60,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_cancel_background"
+        android:textColor="@color/black"
         android:text="No, Go back"
         android:textAllCaps="false"
         android:textStyle="bold"/>

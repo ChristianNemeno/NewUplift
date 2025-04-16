@@ -20,6 +20,8 @@ import com.android.newuplift.activities.LoginActivity
 import com.android.newuplift.activities.LogoutActivity
 import com.android.newuplift.dialogfragment.BottomSheetDialog
 import com.android.newuplift.utility.AuthManager
+import com.android.newuplift.utility.ThemeUtils
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 class SettingsFragment : Fragment() {
     override fun onCreateView(
@@ -37,9 +39,16 @@ class SettingsFragment : Fragment() {
         val backButton = view.findViewById<ImageButton>(R.id.backButton)
         val profileButton = view.findViewById<View>(R.id.profileSection)
 
-        val appearanceButton = view.findViewById<View>(R.id.appearanceSection)
+
         val developerButton = view.findViewById<View>(R.id.aboutSection)
         val logoutButton = view.findViewById<View>(R.id.logoutSection)
+
+        val themeSwitch = view.findViewById<SwitchMaterial>(R.id.appearanceSwitch)
+        themeSwitch.isChecked = ThemeUtils.isDarkMode(requireContext())
+
+        themeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            ThemeUtils.setDarkMode(requireContext(), isChecked)
+        }
 
         backButton.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_homeFragment)
@@ -47,10 +56,6 @@ class SettingsFragment : Fragment() {
 
         profileButton.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_profileFragment)
-
-        }
-
-        appearanceButton.setOnClickListener {
 
         }
 

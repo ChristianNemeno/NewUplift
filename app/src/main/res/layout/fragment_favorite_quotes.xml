@@ -6,7 +6,7 @@
     android:id="@+id/fragment_favorite"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/general_bg_color">
+    >
 
     <!-- Header Layout -->
     <LinearLayout
@@ -26,7 +26,7 @@
             android:fontFamily="@font/robotoserif_bold"
             android:text="Favorite Quotes"
             android:textSize="30sp"
-            android:textColor="@color/black"
+            android:textColor="@color/header_text"
             android:paddingStart="25dp"/>
     </LinearLayout>
 
@@ -46,6 +46,8 @@
         android:id="@+id/emptyStateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/robotoserif_bold"
+        android:textColor="@color/header_text"
         android:text="No favorite quotes yet"
         android:textSize="18sp"
         android:visibility="gone"

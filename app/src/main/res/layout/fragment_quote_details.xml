@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/general_bg_color"
+
     tools:context=".fragments.QuoteDetailsFragment">
 
     <!-- Header Layout -->
@@ -26,7 +26,7 @@
             android:fontFamily="@font/robotoserif_bold"
             android:text="Quote Details"
             android:textSize="30sp"
-            android:textColor="@color/black"
+            android:textColor="@color/header_text"
             android:paddingStart="0dp"/>
     </LinearLayout>
 
@@ -61,6 +61,7 @@
                         android:id="@+id/quoteTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textField_color"
                         android:textSize="18sp"
                         android:textStyle="italic"
                         android:gravity="center"
@@ -72,6 +73,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:textColor="@color/textField_color"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:gravity="end"
@@ -96,6 +98,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textField_color"
                         android:text="Tags"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -125,6 +128,7 @@
                         android:id="@+id/favoriteSwitch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textField_color"
                         android:text="Favorite"
                         android:layout_marginBottom="8dp" />
 

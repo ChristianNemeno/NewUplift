@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/general_bg_color"
+
     tools:context=".fragments.EditQuoteFragment">
 
     <!-- Header Layout -->
@@ -26,7 +26,7 @@
             android:fontFamily="@font/robotoserif_bold"
             android:text="Edit Quote"
             android:textSize="30sp"
-            android:textColor="@color/black"
+            android:textColor="@color/header_text"
             android:paddingStart="0dp"/>
     </LinearLayout>
 
@@ -72,6 +72,7 @@
                             android:inputType="textMultiLine"
                             android:minLines="3"
                             android:gravity="top|start"
+                            android:textColor="@color/textField_color"
                             tools:text="Sample quote" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,6 +91,7 @@
                         android:layout_marginBottom="16dp"
                         android:textSize="16sp"
                         android:textStyle="bold"
+                        android:textColor="@color/author_text"
                         tools:text="Anonymous" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -110,6 +112,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/author_text"
                         android:text="Tags"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -127,6 +130,7 @@
                             android:id="@+id/tagEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/textField_color"
                             android:inputType="text" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -161,6 +165,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/author_text"
                         android:text="Preview"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -170,6 +175,7 @@
                         android:id="@+id/previewQuoteTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textField_color"
                         android:textSize="18sp"
                         android:textStyle="italic"
                         android:gravity="center"
@@ -180,6 +186,7 @@
                         android:id="@+id/previewAuthorTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/author_text"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:gravity="end"
@@ -192,6 +199,7 @@
                 android:id="@+id/favoriteSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/author_text"
                 android:text="Add to favorites"
                 android:layout_marginBottom="16dp" />
         </LinearLayout>
