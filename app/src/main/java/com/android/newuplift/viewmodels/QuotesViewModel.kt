@@ -79,6 +79,20 @@ class QuotesViewModel(
         }
     }
 
+
+    fun deleteQuote(quoteId: Int, userId: Int): LiveData<Boolean> {
+        val result = MutableLiveData<Boolean>()
+        viewModelScope.launch {
+            try {
+                val rowsDeleted = quoteDao.deleteQuote(quoteId, userId)
+                result.postValue(rowsDeleted > 0)
+            } catch (e: Exception) {
+                result.postValue(false)
+            }
+        }
+        return result
+    }
+
     sealed class UiState {
         object Loading : UiState()
         object Success : UiState()

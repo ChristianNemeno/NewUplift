@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.newuplift.R
 import com.android.newuplift.database.DatabaseHelper
+import com.android.newuplift.utility.AuthManager
 import com.android.newuplift.utility.Quote
 import com.android.newuplift.utility.QuoteType
 import com.android.newuplift.viewmodels.QuotesViewModel
@@ -48,6 +50,7 @@ class QuoteDetailsFragment : Fragment() {
         val favoriteSwitch: SwitchMaterial = view.findViewById(R.id.favoriteSwitch)
         val timestampTextView: TextView = view.findViewById(R.id.timestampTextView)
         val editFab: FloatingActionButton = view.findViewById(R.id.editFab)
+        val deleteFab: FloatingActionButton = view.findViewById(R.id.deleteFab)
 
         // Populate UI
         quoteTextView.text = quote.quote
@@ -68,6 +71,34 @@ class QuoteDetailsFragment : Fragment() {
                 isCheckable = false
             }
             tagsChipGroup.addView(chip)
+        }
+
+        // delet user made quote
+        deleteFab.setOnClickListener {
+            if (quote.isUserMade) {
+                androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                    .setTitle("Delete Quote")
+                    .setMessage("Are you sure you want to delete this quote?")
+                    .setPositiveButton("Delete") { _, _ ->
+                        val userId = AuthManager.currentUserId
+                        if (userId != -1) {
+                            viewModel.deleteQuote(quote.id, userId).observe(viewLifecycleOwner) { success ->
+                                if (success) {
+                                    Toast.makeText(context, "Quote deleted", Toast.LENGTH_SHORT).show()
+                                    findNavController().navigateUp()
+                                } else {
+                                    Toast.makeText(context, "Failed to delete quote", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        } else {
+                            Toast.makeText(context, "Please log in", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    .setNegativeButton("Cancel", null)
+                    .show()
+            } else {
+                Toast.makeText(context, "Can only delete user-made quotes", Toast.LENGTH_SHORT).show()
+            }
         }
 
         // Show edit button only for user-made quotes
