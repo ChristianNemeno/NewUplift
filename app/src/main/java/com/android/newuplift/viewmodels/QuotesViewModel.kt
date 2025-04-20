@@ -1,4 +1,4 @@
-package com.android.newuplift.fragments
+package com.android.newuplift.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.LiveData

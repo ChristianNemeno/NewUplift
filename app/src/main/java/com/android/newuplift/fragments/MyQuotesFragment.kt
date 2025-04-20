@@ -1,6 +1,6 @@
 package com.android.newuplift.fragments
 
-import QuotesViewModelFactory
+import com.android.newuplift.viewmodels.QuotesViewModelFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +16,7 @@ import com.android.newuplift.database.DatabaseHelper
 import com.android.newuplift.utility.QuoteType
 import com.android.newuplift.utility.QuotesAdapter
 import com.android.newuplift.utility.showToast
+import com.android.newuplift.viewmodels.QuotesViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MyQuotesFragment : Fragment() {

@@ -284,4 +284,44 @@ fun updateUserDetails(userId: Int, updatedUser: UserAccount): Int {
 }
 
 // ------------------------------------------------------------------------------
+
+
+    // Add this method to QuoteDao.kt
+    fun isQuoteFavorite(id: Int, userId: Int): Boolean {
+        val cursor: Cursor = db.query(
+            TABLE_NAME,
+            arrayOf(COLUMN_IS_FAVORITE), // Only need the favorite column
+            "$COLUMN_ID = ? AND $COLUMN_USER_ID = ?",
+            arrayOf(id.toString(), userId.toString()),
+            null,
+            null,
+            null
+        )
+        cursor.use {
+            if (it.moveToFirst()) {
+                // Return true if is_favorite column is 1
+                return it.getInt(it.getColumnIndexOrThrow(COLUMN_IS_FAVORITE)) == 1
+            }
+            // Quote not found for this user, so not favorite
+            return false
+        }
+    }
+
+    // Add this method to QuoteDao.kt (Alternative to isQuoteFavorite, can combine if needed)
+    fun getFavoriteStatus(id: Int, userId: Int): Boolean {
+        val cursor: Cursor = db.query(
+            TABLE_NAME,
+            arrayOf(COLUMN_IS_FAVORITE),
+            "$COLUMN_ID = ? AND $COLUMN_USER_ID = ?",
+            arrayOf(id.toString(), userId.toString()),
+            null, null, null
+        )
+        cursor.use {
+            return if (it.moveToFirst()) {
+                it.getInt(it.getColumnIndexOrThrow(COLUMN_IS_FAVORITE)) == 1
+            } else {
+                false // Not found, treat as not favorite
+            }
+        }
+    }
 }

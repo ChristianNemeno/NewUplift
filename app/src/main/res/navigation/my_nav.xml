@@ -15,35 +15,27 @@
         android:id="@+id/settingsFragment"
         android:name="com.android.newuplift.fragments.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" >
-
-        <!--This is where to create action to different fragments-->
+        tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_settingsFragment_to_favoriteQuotesFragment"
             app:destination="@id/favoriteQuotesFragment"
             app:popUpTo="@id/settingsFragment"
             app:popUpToInclusive="false" />
-
         <action
             android:id="@+id/action_settingsFragment_to_profileFragment"
-            app:destination="@+id/profileFragment"
+            app:destination="@id/profileFragment"
             app:popUpTo="@id/settingsFragment"
-            app:popUpToInclusive="false"
-            />
-
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_settingsFragment_to_developerFragment"
-            app:destination="@+id/developerFragment"
+            app:destination="@id/developerFragment"
             app:popUpTo="@id/settingsFragment"
-            app:popUpToInclusive="false"
-            />
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_settingsFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/settingsFragment"
-            app:popUpToInclusive="false"/>
-
-
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -51,20 +43,16 @@
         android:name="com.android.newuplift.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile">
-
         <action
             android:id="@+id/action_profileFragment_to_settingsFragment"
             app:destination="@+id/settingsFragment"
             app:popUpTo="@id/profileFragment"
-            app:popUpToInclusive="false"
-            />
-
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_profileFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment"
             app:popUpTo="@id/profileFragment"
-            app:popUpToInclusive="false"/>
-
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -72,14 +60,11 @@
         android:name="com.android.newuplift.fragments.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile">
-
         <action
             android:id="@+id/action_editProfileFragment_to_profileFragment"
-            app:destination="@+id/profileFragment"
+            app:destination="@id/profileFragment"
             app:popUpTo="@id/editProfileFragment"
-            app:popUpToInclusive="false"
-            />
-
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -91,7 +76,6 @@
             android:id="@+id/action_favoriteQuotes_to_editQuote"
             app:destination="@id/editQuoteFragment" />
     </fragment>
-
 
     <fragment
         android:id="@+id/makeQuotesFragment"
@@ -142,20 +126,15 @@
             app:popUpToInclusive="false" />
     </fragment>
 
-
     <fragment
         android:id="@+id/developerFragment"
         android:name="com.android.newuplift.fragments.DeveloperFragment"
         android:label="fragment_developer"
         tools:layout="@layout/fragment_developers_page">
-
         <action
             android:id="@+id/action_developerFragment_to_settingsFragment"
-            app:destination="@+id/settingsFragment"
+            app:destination="@id/settingsFragment"
             app:popUpTo="@id/developerFragment"
-            app:popUpToInclusive="false"
-            />
-
+            app:popUpToInclusive="false" />
     </fragment>
-
 </navigation>

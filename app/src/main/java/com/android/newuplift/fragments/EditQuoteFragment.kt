@@ -1,6 +1,6 @@
 package com.android.newuplift.fragments
 
-import QuotesViewModelFactory
+import com.android.newuplift.viewmodels.QuotesViewModelFactory
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -19,6 +19,7 @@ import com.android.newuplift.database.DatabaseHelper
 import com.android.newuplift.utility.AuthManager
 import com.android.newuplift.utility.Quote
 import com.android.newuplift.utility.QuoteType
+import com.android.newuplift.viewmodels.QuotesViewModel
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.switchmaterial.SwitchMaterial

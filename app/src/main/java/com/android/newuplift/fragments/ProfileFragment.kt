@@ -20,6 +20,8 @@ import com.android.newuplift.R
 import com.android.newuplift.database.DatabaseHelper
 import com.android.newuplift.database.QuoteDao
 import com.android.newuplift.utility.AuthManager
+import com.android.newuplift.viewmodels.UserViewModel
+import com.android.newuplift.viewmodels.UserViewModelFactory
 import com.google.android.material.textfield.TextInputEditText
 
 class ProfileFragment : Fragment() {
