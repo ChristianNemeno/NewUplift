@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -25,6 +26,7 @@ import com.android.newuplift.utility.AuthManager
 import com.android.newuplift.utility.UserAccount
 import com.android.newuplift.viewmodels.UserViewModel
 import com.android.newuplift.viewmodels.UserViewModelFactory
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputEditText
 
 class EditProfileFragment: Fragment() {
@@ -78,7 +80,9 @@ class EditProfileFragment: Fragment() {
         val number = view.findViewById<TextInputEditText>(R.id.phonenumberEditText)
         val email = view.findViewById<TextInputEditText>(R.id.emailEditText)
         val doneButton = view.findViewById<Button>(R.id.doneEditButton)
-        val backButton = view.findViewById<ImageButton>(R.id.backButton)
+
+        // val backButton = view.findViewById<ImageButton>(R.id.backButton)
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.topAppBar)
 
         profileImageView = view.findViewById(R.id.profileImageView)
         editProfileImageButton = view.findViewById(R.id.editProfilePictureButton)
@@ -135,7 +139,11 @@ class EditProfileFragment: Fragment() {
             findNavController().navigateUp()
         }
 
-        backButton.setOnClickListener {
+//        backButton.setOnClickListener {
+//            findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
+//        }
+
+        toolbar.setOnClickListener {
             findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
         }
     }

@@ -22,6 +22,7 @@ import com.android.newuplift.database.QuoteDao
 import com.android.newuplift.utility.AuthManager
 import com.android.newuplift.viewmodels.UserViewModel
 import com.android.newuplift.viewmodels.UserViewModelFactory
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputEditText
 
 class ProfileFragment : Fragment() {
@@ -104,9 +105,9 @@ class ProfileFragment : Fragment() {
         viewModel.loadUserDetails(userId)
 
         val editButton = view.findViewById<Button>(R.id.editProfileButton)
-        val backButton = view.findViewById<ImageButton>(R.id.backButton)
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.topAppBar)
 
-        backButton.setOnClickListener {
+        toolbar.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
         }
 

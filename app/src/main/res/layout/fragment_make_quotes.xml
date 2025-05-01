@@ -4,15 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-
     tools:context=".fragments.MakeQuotesFragment">
+
+    <!-- Material 3 Toolbar Header -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="8dp"
+        android:paddingTop="22dp"
+        android:paddingBottom="20dp"
+        android:paddingStart="25dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:title="Create Quote"
+        app:titleTextAppearance="@style/MyToolbarTextAppearance"
+        app:contentInsetStartWithNavigation="24dp" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
         app:layout_constraintBottom_toTopOf="@id/saveQuoteButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -22,17 +37,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/header_text"
-                android:text="Create Your Quote"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:fontFamily="@font/robotoserif_bold"
-                android:layout_marginBottom="16dp"
-                />
+            <!-- Removed the old title TextView since we now have it in the toolbar -->
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -91,6 +96,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Rest of your existing content remains the same -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -201,7 +207,9 @@
         android:id="@+id/saveQuoteButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bgbuttons"
+        style="@style/GeneralButtonStyle"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Save Quote"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

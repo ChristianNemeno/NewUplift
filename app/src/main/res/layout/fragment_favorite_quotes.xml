@@ -5,55 +5,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_favorite"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
-    <!-- Header Layout -->
-    <LinearLayout
-        android:id="@+id/header_title"
+    <!-- Material 3 Toolbar Header -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="?attr/colorPrimary"
+        android:elevation="8dp"
+        android:paddingTop="22dp"
+        android:paddingBottom="20dp"
+        android:paddingStart="25dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="20dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/robotoserif_bold"
-            android:text="Favorite Quotes"
-            android:textSize="30sp"
-            android:textColor="@color/header_text"
-            android:paddingStart="25dp"/>
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:title="Favorite Quotes"
+        app:titleTextAppearance="@style/MyToolbarTextAppearance"
+        app:contentInsetStartWithNavigation="24dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewQuotes"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
-        android:scrollbars="vertical"
         android:clipToPadding="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_title" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
         android:id="@+id/emptyStateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/robotoserif_bold"
-        android:textColor="@color/header_text"
         android:text="No favorite quotes yet"
         android:textSize="18sp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/robotoserif_bold"
+        android:textColor="@color/header_text"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_title" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

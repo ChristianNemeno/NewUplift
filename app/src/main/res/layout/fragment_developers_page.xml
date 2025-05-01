@@ -9,35 +9,20 @@
     >
 
     <!-- Header Layout -->
-    <LinearLayout
-        android:id="@+id/header_title"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="20dp">
+        android:background="?attr/colorPrimarySurface"
+        android:elevation="8dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="10dp"
+        app:title="About the developers"
+        app:navigationIcon="@drawable/arrow_back"
+        app:navigationIconTint="@color/white"
+        app:titleTextAppearance="@style/MyToolbarTextAppearance"
+        app:contentInsetStartWithNavigation="20dp"/>
 
-        <ImageButton
-            android:id="@+id/backButton"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:background="@drawable/arrow_back"
-            android:baselineAlignBottom="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="1dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/robotoserif_bold"
-            android:text="About the developers"
-            android:textSize="28sp"
-            android:textColor="@color/header_text"
-            android:paddingStart="20dp"/>
-    </LinearLayout>
 
     <!-- Scrollable content -->
     <ScrollView

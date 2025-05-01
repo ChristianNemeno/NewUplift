@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="background_primary">@color/general_bg_color_dark</color>
-    <color name="bottom_nav_background">#09083D</color>
+    <color name="bottom_nav_background">@color/black</color>
     <color name="color_active_indicator">@color/teal_darker</color>
     <color name="bottom_nav_text">@color/teal_darker</color>
     <color name="header_text">@color/white</color>

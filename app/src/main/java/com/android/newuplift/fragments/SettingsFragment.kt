@@ -21,6 +21,7 @@ import com.android.newuplift.activities.LogoutActivity
 import com.android.newuplift.dialogfragment.BottomSheetDialog
 import com.android.newuplift.utility.AuthManager
 import com.android.newuplift.utility.ThemeUtils
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.switchmaterial.SwitchMaterial
 
 class SettingsFragment : Fragment() {
@@ -36,6 +37,7 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val backButton = view.findViewById<ImageButton>(R.id.backButton)
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.topAppBar)
         val profileButton = view.findViewById<View>(R.id.profileSection)
 
 
@@ -49,7 +51,7 @@ class SettingsFragment : Fragment() {
             ThemeUtils.setDarkMode(requireContext(), isChecked)
         }
 
-        backButton.setOnClickListener {
+        toolbar.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_homeFragment)
         }
 

@@ -4,6 +4,8 @@
     <style name="Base.Theme.NewUplift" parent="Theme.Material3.DayNight.NoActionBar">
         <!--        <item name="android:statusBarColor">?attr/colorPrimary</item>-->
 <!--        <item name="android:navigationBarColor">?attr/colorPrimary</item>-->
+
+        <item name="colorPrimary">@color/light_purple</item>
     </style>
 
     <style name="Theme.NewUplift" parent="Base.Theme.NewUplift" />

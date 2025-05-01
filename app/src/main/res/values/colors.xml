@@ -31,6 +31,8 @@
 
 
     <color name="dark_purple">#4C4993</color>
+
+    <color name="light_purple">#6662C8</color>
     <color name="teal_darker">#BFC9EB</color>
 
     <color name="medium_light_gray">#B0B0B0</color>
@@ -63,7 +65,7 @@
 
     <!--Main colors-->
     <color name="background_primary">@color/general_bg_color_light</color>
-    <color name="bottom_nav_background">@color/soft_blue</color>
+    <color name="bottom_nav_background">@color/white</color>
     <color name="color_active_indicator">#09083D</color>
     <color name="bottom_nav_text">#09083D</color>
     <color name="header_text">@color/black</color>

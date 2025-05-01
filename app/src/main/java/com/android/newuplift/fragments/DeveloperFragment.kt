@@ -8,6 +8,7 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.newuplift.R
+import com.google.android.material.appbar.MaterialToolbar
 
 class DeveloperFragment: Fragment() {
     override fun onCreateView(
@@ -22,8 +23,9 @@ class DeveloperFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val backButton = view.findViewById<ImageButton>(R.id.backButton)
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.topAppBar)
 
-        backButton.setOnClickListener {
+        toolbar.setOnClickListener {
             findNavController().navigate(R.id.action_developerFragment_to_settingsFragment)
         }
     }
