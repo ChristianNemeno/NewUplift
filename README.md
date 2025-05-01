@@ -1,10 +1,13 @@
 # NewUplift Android App
 
 <div style="text-align: center;">
-  <img src="https://github.com/user-attachments/assets/130bdc27-531d-4ad6-a545-a7fd3d0cad7d" alt="uplift logo">
+  <img src="https://github.com/user-attachments/assets/130bdc27-531d-4ad6-a545-a7fd3d0cad7d" alt="uplift logo" width="150">
 </div>
 
 
+<br>
+<br>
+<br>
 NewUplift is an Android application designed to provide users with daily inspiration through quotes. Users can discover quotes based on their mood, save their favorites, manage their personal collection, and manage their profile.
 
 ## Features
