@@ -1,8 +1,7 @@
-
+package com.android.newuplift.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.android.newuplift.database.DatabaseHelper
-import com.android.newuplift.fragments.QuotesViewModel
 import com.android.newuplift.utility.QuoteType
 
 class QuotesViewModelFactory(

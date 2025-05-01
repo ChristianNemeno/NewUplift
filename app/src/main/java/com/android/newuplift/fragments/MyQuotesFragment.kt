@@ -1,6 +1,6 @@
 package com.android.newuplift.fragments
 
-import QuotesViewModelFactory
+import com.android.newuplift.viewmodels.QuotesViewModelFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +16,7 @@ import com.android.newuplift.database.DatabaseHelper
 import com.android.newuplift.utility.QuoteType
 import com.android.newuplift.utility.QuotesAdapter
 import com.android.newuplift.utility.showToast
+import com.android.newuplift.viewmodels.QuotesViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MyQuotesFragment : Fragment() {
@@ -47,7 +48,13 @@ class MyQuotesFragment : Fragment() {
         recyclerView.setHasFixedSize(false)
         recyclerView.isNestedScrollingEnabled = true
 
-        quotesAdapter = QuotesAdapter(emptyList())
+        quotesAdapter = QuotesAdapter(
+            emptyList(),
+            onQuoteClick = { quote ->
+                val action = MyQuotesFragmentDirections.actionMyQuotesToQuoteDetails(quote)
+                findNavController().navigate(action)
+            }
+        )
         recyclerView.adapter = quotesAdapter
 
         viewModel.quotes.observe(viewLifecycleOwner) { quotes ->
@@ -58,7 +65,6 @@ class MyQuotesFragment : Fragment() {
             when (state) {
                 is QuotesViewModel.UiState.Loading -> {
                     emptyStateTextView.visibility = View.GONE
-                    // Optionally show loading indicator
                 }
                 is QuotesViewModel.UiState.Success -> {
                     emptyStateTextView.visibility = View.GONE
@@ -71,6 +77,15 @@ class MyQuotesFragment : Fragment() {
                     emptyStateTextView.visibility = View.GONE
                     showToast(state.message)
                 }
+                is QuotesViewModel.UiState.UpdateSuccess -> {
+                    showToast("Quote updated")
+                }
+                is QuotesViewModel.UiState.UpdateError -> {
+                    showToast(state.message)
+                }
+                is QuotesViewModel.UiState.FavoriteToggled -> {
+                    showToast("Favorite status updated")
+                }
             }
         }
 
@@ -81,6 +96,6 @@ class MyQuotesFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        viewModel.loadQuotes() // Refresh quotes when fragment is visible
+        viewModel.loadQuotes()
     }
 }

@@ -9,4 +9,5 @@
     <string name="login">Log In</string>
     <string name="register">Register</string>
     <string name="app_logo">Uplift</string>
+    <string name="default_quote_text">Yesterday is histor, the future is a mystery but today is a gift, that is why its called the present.</string>
 </resources>

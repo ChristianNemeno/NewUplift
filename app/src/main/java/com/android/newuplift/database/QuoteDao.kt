@@ -223,7 +223,105 @@ class QuoteDao(private val db: SQLiteDatabase) {
         }
         return quotes
     }
-
+    fun updateQuote(quote: Quote, userId: Int): Int {
+        val values = ContentValues().apply {
+            put(COLUMN_QUOTE, quote.quote)
+            put(COLUMN_TAGS, quote.tags.joinToString(", "))
+            put(COLUMN_IS_FAVORITE, if (quote.isFavorite) 1 else 0)
+            put(COLUMN_LENGTH, quote.quote.length)
+        }
+        try {
+            return db.update(
+                TABLE_NAME,
+                values,
+                "$COLUMN_ID = ? AND $COLUMN_USER_ID = ?",
+                arrayOf(quote.id.toString(), userId.toString())
+            )
+        } catch (e: Exception) {
+            Log.e("QuoteDao", "Error updating quote: ${e.message}")
+            return 0
+        }
+    }
 
     // ------------------------------------------------------------------------------
+    fun getUserDetails(userId: Int): UserAccount? {
+        val cursor: Cursor = db.query(
+            TABLE_NAME_USER,
+            null,
+            "$COLUMN_USER_PK = ?",
+            arrayOf(userId.toString()),
+            null,
+            null,
+            null
+        )
+
+        cursor.use {
+            return if (it.moveToFirst()) {
+                UserAccount(
+                    name = it.getString(it.getColumnIndexOrThrow(COLUMN_NAME)),
+                    username = it.getString(it.getColumnIndexOrThrow(COLUMN_USER)),
+                    password = "", // Don't expose password
+                    email = it.getString(it.getColumnIndexOrThrow(COLUMN_EMAIL)),
+                    address = it.getString(it.getColumnIndexOrThrow(COLUMN_ADDRESS)),
+                    number = it.getString(it.getColumnIndexOrThrow(COLUMN_NUMBER))
+                )
+            } else {
+                null
+            }
+        }
+    }
+
+//------------------------------------------------------------------------------
+fun updateUserDetails(userId: Int, updatedUser: UserAccount): Int {
+    val values = ContentValues().apply {
+        put("name", updatedUser.name)
+        put("username", updatedUser.username)
+        put("email", updatedUser.email)
+        put("address", updatedUser.address)
+        put("number", updatedUser.number)
+    }
+    return db.update("users", values, "u_id = ?", arrayOf(userId.toString()))
+}
+
+// ------------------------------------------------------------------------------
+
+
+    // Add this method to QuoteDao.kt
+    fun isQuoteFavorite(id: Int, userId: Int): Boolean {
+        val cursor: Cursor = db.query(
+            TABLE_NAME,
+            arrayOf(COLUMN_IS_FAVORITE), // Only need the favorite column
+            "$COLUMN_ID = ? AND $COLUMN_USER_ID = ?",
+            arrayOf(id.toString(), userId.toString()),
+            null,
+            null,
+            null
+        )
+        cursor.use {
+            if (it.moveToFirst()) {
+                // Return true if is_favorite column is 1
+                return it.getInt(it.getColumnIndexOrThrow(COLUMN_IS_FAVORITE)) == 1
+            }
+            // Quote not found for this user, so not favorite
+            return false
+        }
+    }
+
+    // Add this method to QuoteDao.kt (Alternative to isQuoteFavorite, can combine if needed)
+    fun getFavoriteStatus(id: Int, userId: Int): Boolean {
+        val cursor: Cursor = db.query(
+            TABLE_NAME,
+            arrayOf(COLUMN_IS_FAVORITE),
+            "$COLUMN_ID = ? AND $COLUMN_USER_ID = ?",
+            arrayOf(id.toString(), userId.toString()),
+            null, null, null
+        )
+        cursor.use {
+            return if (it.moveToFirst()) {
+                it.getInt(it.getColumnIndexOrThrow(COLUMN_IS_FAVORITE)) == 1
+            } else {
+                false // Not found, treat as not favorite
+            }
+        }
+    }
 }

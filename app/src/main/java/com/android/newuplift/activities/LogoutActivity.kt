@@ -18,8 +18,7 @@ class LogoutActivity : AppCompatActivity() {
         val rgBtn = findViewById<Button>(R.id.logout_btn_register)
 
 
-        lgBtn.background = ContextCompat.getDrawable(this, R.drawable.button_login_background)
-        rgBtn.background = ContextCompat.getDrawable(this, R.drawable.button_register_background)
+
 
         lgBtn.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))

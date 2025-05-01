@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-parcelize")
+    id ("androidx.navigation.safeargs.kotlin")
+
 }
 
 android {
@@ -42,6 +45,7 @@ dependencies {
 
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.0")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.0")
+    implementation ("androidx.fragment:fragment-ktx:1.8.6")
 
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
@@ -55,6 +59,7 @@ dependencies {
 
     implementation ("com.google.android.material:material:1.7.0")
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
 
     //
     implementation(libs.androidx.core.ktx)

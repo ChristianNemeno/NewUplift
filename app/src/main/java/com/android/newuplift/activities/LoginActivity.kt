@@ -34,6 +34,13 @@ class LoginActivity : AppCompatActivity() {
         val regis = findViewById<TextView>(R.id.registerTextView)
         val btnLogin = findViewById<Button>(R.id.login_btn)
 
+        AuthManager.initialize(this)
+
+        if(AuthManager.isLoggedIn){
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+
 
         btnLogin.setOnClickListener {
 

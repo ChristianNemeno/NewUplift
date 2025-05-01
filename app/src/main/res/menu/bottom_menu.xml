@@ -4,20 +4,17 @@
     <item
         android:id="@+id/homeFragment"
         android:title="Home"
-        android:icon="@drawable/home_ic"
-        />
+        android:icon="@drawable/home_ic" />
 
     <item
-        android:id="@+id/favoriteFragment"
+        android:id="@+id/favoriteQuotesFragment"
         android:title="Favorites"
-        android:icon="@drawable/ic_favorite"
-        />
+        android:icon="@drawable/ic_favorite" />
 
     <item
-        android:id="@+id/myQuoteFragment"
+        android:id="@+id/myQuotes"
         android:title="My Quotes"
-        android:icon="@drawable/ic_folder"
-        />
+        android:icon="@drawable/ic_folder" />
 
     <item
         android:id="@+id/settingsFragment"

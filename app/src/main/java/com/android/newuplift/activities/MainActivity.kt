@@ -1,8 +1,8 @@
 package com.android.newuplift.activities
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.newuplift.R
@@ -12,45 +12,52 @@ import com.google.android.material.navigation.NavigationBarView
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
-
+        setContentView(R.layout.activity_main)
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.labelVisibilityMode = NavigationBarView.LABEL_VISIBILITY_SELECTED
         val navController = supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
-            ?.findNavController() // Use safe call to avoid potential null pointer exception
+            ?.findNavController()
 
         if (navController != null) {
             bottomNavigationView.setupWithNavController(navController)
 
-            // Handle navigation item selection to clear the stack
             bottomNavigationView.setOnItemSelectedListener { item ->
-                when (item.itemId) {
-                    R.id.settingsFragment -> {
-                        navController.popBackStack(R.id.settingsFragment, true) // Clear stack up to settings
-                        navController.navigate(R.id.settingsFragment) // Navigate to settings
-                        true
+                Log.d("MainActivity", "Selected item: ${item.itemId}")
+                val currentDestination = navController.currentDestination?.id
+                if (currentDestination == item.itemId) {
+                    Log.d("MainActivity", "Already on destination: ${item.itemId}")
+                    true
+                } else {
+                    when (item.itemId) {
+                        R.id.settingsFragment -> {
+                            if (!navController.popBackStack(R.id.settingsFragment, false)) {
+                                navController.navigate(R.id.settingsFragment)
+                            }
+                            true
+                        }
+                        R.id.homeFragment -> {
+                            if (!navController.popBackStack(R.id.homeFragment, false)) {
+                                navController.navigate(R.id.homeFragment)
+                            }
+                            true
+                        }
+                        R.id.favoriteQuotesFragment -> {
+                            if (!navController.popBackStack(R.id.favoriteQuotesFragment, false)) {
+                                navController.navigate(R.id.favoriteQuotesFragment)
+                            }
+                            true
+                        }
+                        R.id.myQuotes -> {
+                            if (!navController.popBackStack(R.id.myQuotes, false)) {
+                                navController.navigate(R.id.myQuotes)
+                            }
+                            true
+                        }
+                        else -> false
                     }
-                    R.id.homeFragment -> {
-                        navController.popBackStack(R.id.homeFragment, true)
-                        navController.navigate(R.id.homeFragment)
-                        true
-                    }
-                    R.id.favoriteFragment ->{
-                        navController.popBackStack(R.id.favoriteQuotesFragment, true)
-                        navController.navigate(R.id.favoriteQuotesFragment)
-                        true
-                    }
-                    R.id.myQuoteFragment ->{
-                        navController.popBackStack(R.id.myQuotes, true)
-                        navController.navigate(R.id.myQuotes)
-                        true
-                    }
-                    else -> false
                 }
             }
         }
-
     }
-
 }
