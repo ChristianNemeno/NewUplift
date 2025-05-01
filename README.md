@@ -97,7 +97,7 @@ The application follows the **MVVM (Model-View-ViewModel)** architecture pattern
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository-url>
+    git clone <[repository-url](https://github.com/ChristianNemeno/NewUplift.git)>
     cd NewUplift
     ```
 2.  **Open in Android Studio:**
