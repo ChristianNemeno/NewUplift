@@ -10,6 +10,20 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity() {
+
+    // Inside MainActivity class
+    override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
+        super.onConfigurationChanged(newConfig)
+        // Check if the UI mode (dark/light theme) has changed
+        // You might need to store the previous configuration's uiMode to compare
+        // For simplicity, we often just recreate on any uiMode change handled here.
+        // A more robust check compares newConfig.uiMode with the previous one.
+
+        // Basic check: If the system is now dark, and your app wasn't, or vice versa.
+        // Or, simply recreate whenever onConfigurationChanged is called for uiMode.
+        Log.d("MainActivity", "onConfigurationChanged triggered by UI mode change.")
+        recreate() // Manually trigger recreation to apply theme changes
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
