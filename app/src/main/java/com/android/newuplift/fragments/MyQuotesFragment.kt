@@ -68,7 +68,7 @@ class MyQuotesFragment : Fragment() {
                 }
                 is QuotesViewModel.UiState.Success -> {
                     emptyStateTextView.visibility = View.GONE
-                    showToast("User-made quotes loaded")
+                    //showToast("User-made quotes loaded")
                 }
                 is QuotesViewModel.UiState.Empty -> {
                     emptyStateTextView.visibility = View.VISIBLE

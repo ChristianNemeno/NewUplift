@@ -15,6 +15,9 @@ data class Quote(
     val timestamp: Long = 0L
 ) : Parcelable
 
+
+
+
 data class UserAccount(
     val name: String,
     val username: String,

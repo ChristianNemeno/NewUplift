@@ -65,7 +65,7 @@ class FavoriteQuotesFragment : Fragment() {
                 }
                 is QuotesViewModel.UiState.Success -> {
                     emptyStateTextView.visibility = View.GONE
-                    showToast("Favorite quotes loaded")
+                    //showToast("Favorite quotes loaded")
                 }
                 is QuotesViewModel.UiState.Empty -> {
                     emptyStateTextView.visibility = View.VISIBLE
