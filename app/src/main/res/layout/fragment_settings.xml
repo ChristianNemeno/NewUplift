@@ -156,34 +156,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/settingsContainer">
 
-        <!-- Appearance -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingVertical="16dp"
-            android:paddingEnd="32dp"
-            android:paddingStart="30dp">
+<!--        &lt;!&ndash; Appearance &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="?attr/selectableItemBackground"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingVertical="16dp"-->
+<!--            android:paddingEnd="32dp"-->
+<!--            android:paddingStart="30dp">-->
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="3dp"
-                android:src="@drawable/settings_appearance_icon" />
+<!--            <ImageView-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:layout_marginEnd="3dp"-->
+<!--                android:src="@drawable/settings_appearance_icon" />-->
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/appearanceSwitch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Appearance"
-                android:textColor="@color/textField_color"
-                android:textSize="18sp"
-                android:fontFamily="@font/robotoserif_medium"
-                app:thumbTint="@color/switch_thumb_color"
-                app:trackTint="@color/switch_track_color"  />
+<!--            <com.google.android.material.switchmaterial.SwitchMaterial-->
+<!--                android:id="@+id/appearanceSwitch"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Appearance"-->
+<!--                android:textColor="@color/textField_color"-->
+<!--                android:textSize="18sp"-->
+<!--                android:fontFamily="@font/robotoserif_medium"-->
+<!--                app:thumbTint="@color/switch_thumb_color"-->
+<!--                app:trackTint="@color/switch_track_color"  />-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,8 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,12 +46,12 @@ class SettingsFragment : Fragment() {
         val developerButton = view.findViewById<View>(R.id.aboutSection)
         val logoutButton = view.findViewById<View>(R.id.logoutSection)
 
-        val themeSwitch = view.findViewById<SwitchMaterial>(R.id.appearanceSwitch)
-        themeSwitch.isChecked = ThemeUtils.isDarkMode(requireContext())
-
-        themeSwitch.setOnCheckedChangeListener { _, isChecked ->
-            ThemeUtils.setDarkMode(requireContext(), isChecked)
-        }
+//        val themeSwitch = view.findViewById<SwitchMaterial>(R.id.appearanceSwitch)
+//        themeSwitch.isChecked = ThemeUtils.isDarkMode(requireContext())
+//
+//        themeSwitch.setOnCheckedChangeListener { _, isChecked ->
+//            ThemeUtils.setDarkMode(requireContext(), isChecked)
+//        }
 
         toolbar.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_homeFragment)

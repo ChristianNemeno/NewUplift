@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
 
         // Basic check: If the system is now dark, and your app wasn't, or vice versa.
         // Or, simply recreate whenever onConfigurationChanged is called for uiMode.
-        Log.d("MainActivity", "onConfigurationChanged triggered by UI mode change.")
-        recreate() // Manually trigger recreation to apply theme changes
+//        Log.d("MainActivity", "onConfigurationChanged triggered by UI mode change.")
+//        recreate() // Manually trigger recreation to apply theme changes
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
