@@ -47,8 +47,10 @@ class SettingsFragment : Fragment() {
         val themeSwitch = view.findViewById<SwitchMaterial>(R.id.appearanceSwitch)
         themeSwitch.isChecked = ThemeUtils.isDarkMode(requireContext())
 
+        // Update the listener to use the new method that recreates the activity
         themeSwitch.setOnCheckedChangeListener { _, isChecked ->
-            ThemeUtils.setDarkMode(requireContext(), isChecked)
+            // Use our improved method that forces recreation of the activity
+            ThemeUtils.setDarkMode(this, isChecked)
         }
 
         toolbar.setOnClickListener {
